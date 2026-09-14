@@ -1,0 +1,807 @@
+{
+  "phase": "7-attack-trajectory-mitre",
+  "checkpoint": "D:\\sentinel\\sentinel\\models\\sentinel_x\\model.pt",
+  "combo": "graphsage_lstm",
+  "dataset": "ctu-13",
+  "seq_len": 4,
+  "K": 5,
+  "risk_threshold": 0.42692267894744873,
+  "split_info": {
+    "dataset": "ctu-13",
+    "num_windows": 195,
+    "seq_len": 4,
+    "K": 5,
+    "usable": true,
+    "num_samples": 187,
+    "counts": {
+      "train": 130,
+      "val": 28,
+      "test": 29
+    },
+    "graph_capable": true,
+    "test_positives_by_horizon": {
+      "1": 22,
+      "2": 21,
+      "3": 20,
+      "4": 19,
+      "5": 18
+    }
+  },
+  "created_utc": "2026-09-05T07:58:52.133764+00:00",
+  "python": "3.14.3",
+  "trajectories": [
+    {
+      "t_index": 161,
+      "n_observed": 4,
+      "n_forecast": 5,
+      "stages": [
+        {
+          "stage": "Benign / No Attack Behaviour",
+          "status": "observed",
+          "confidence": 0.0,
+          "evidence": [
+            "no malicious edges (attack_ratio=0.000, edge_attack_fraction=0.000)"
+          ],
+          "horizon": -3,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Benign / No Attack Behaviour",
+          "status": "observed",
+          "confidence": 0.0,
+          "evidence": [
+            "no malicious edges (attack_ratio=0.000, edge_attack_fraction=0.000)"
+          ],
+          "horizon": -2,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=844, edge_bytes=158284584, mean_out_degree=2.11)"
+          ],
+          "horizon": -1,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+          ],
+          "horizon": 0,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.44349,
+          "evidence": [
+            "model forecast risk at this horizon = 0.443",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 1,
+          "window_index": 162,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.456443,
+          "evidence": [
+            "model forecast risk at this horizon = 0.456",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 2,
+          "window_index": 163,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.4663,
+          "evidence": [
+            "model forecast risk at this horizon = 0.466",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 3,
+          "window_index": 164,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.47396,
+          "evidence": [
+            "model forecast risk at this horizon = 0.474",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 4,
+          "window_index": 165,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.479933,
+          "evidence": [
+            "model forecast risk at this horizon = 0.480",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 5,
+          "window_index": 166,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        }
+      ]
+    },
+    {
+      "t_index": 162,
+      "n_observed": 4,
+      "n_forecast": 5,
+      "stages": [
+        {
+          "stage": "Benign / No Attack Behaviour",
+          "status": "observed",
+          "confidence": 0.0,
+          "evidence": [
+            "no malicious edges (attack_ratio=0.000, edge_attack_fraction=0.000)"
+          ],
+          "horizon": -3,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=844, edge_bytes=158284584, mean_out_degree=2.11)"
+          ],
+          "horizon": -2,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+          ],
+          "horizon": -1,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.004)",
+            "sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+          ],
+          "horizon": 0,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.443401,
+          "evidence": [
+            "model forecast risk at this horizon = 0.443",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 1,
+          "window_index": 163,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.456365,
+          "evidence": [
+            "model forecast risk at this horizon = 0.456",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 2,
+          "window_index": 164,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.46624,
+          "evidence": [
+            "model forecast risk at this horizon = 0.466",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 3,
+          "window_index": 165,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.473914,
+          "evidence": [
+            "model forecast risk at this horizon = 0.474",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 4,
+          "window_index": 166,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.479897,
+          "evidence": [
+            "model forecast risk at this horizon = 0.480",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 5,
+          "window_index": 167,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        }
+      ]
+    },
+    {
+      "t_index": 163,
+      "n_observed": 4,
+      "n_forecast": 5,
+      "stages": [
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=844, edge_bytes=158284584, mean_out_degree=2.11)"
+          ],
+          "horizon": -3,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+          ],
+          "horizon": -2,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.004)",
+            "sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+          ],
+          "horizon": -1,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.008)",
+            "sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+          ],
+          "horizon": 0,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.443244,
+          "evidence": [
+            "model forecast risk at this horizon = 0.443",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 1,
+          "window_index": 164,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.456239,
+          "evidence": [
+            "model forecast risk at this horizon = 0.456",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 2,
+          "window_index": 165,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.466143,
+          "evidence": [
+            "model forecast risk at this horizon = 0.466",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 3,
+          "window_index": 166,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.473837,
+          "evidence": [
+            "model forecast risk at this horizon = 0.474",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 4,
+          "window_index": 167,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.479837,
+          "evidence": [
+            "model forecast risk at this horizon = 0.480",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 5,
+          "window_index": 168,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        }
+      ]
+    },
+    {
+      "t_index": 164,
+      "n_observed": 4,
+      "n_forecast": 5,
+      "stages": [
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.003)",
+            "sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+          ],
+          "horizon": -3,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.004)",
+            "sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+          ],
+          "horizon": -2,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.008)",
+            "sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+          ],
+          "horizon": -1,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.010)",
+            "sustained high-volume fan-out (flows=695, edge_bytes=5610489, mean_out_degree=3.16)"
+          ],
+          "horizon": 0,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.443064,
+          "evidence": [
+            "model forecast risk at this horizon = 0.443",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 1,
+          "window_index": 165,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.456088,
+          "evidence": [
+            "model forecast risk at this horizon = 0.456",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 2,
+          "window_index": 166,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.466026,
+          "evidence": [
+            "model forecast risk at this horizon = 0.466",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 3,
+          "window_index": 167,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.473745,
+          "evidence": [
+            "model forecast risk at this horizon = 0.474",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 4,
+          "window_index": 168,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.479765,
+          "evidence": [
+            "model forecast risk at this horizon = 0.480",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 5,
+          "window_index": 169,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        }
+      ]
+    },
+    {
+      "t_index": 165,
+      "n_observed": 4,
+      "n_forecast": 5,
+      "stages": [
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.004)",
+            "sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+          ],
+          "horizon": -3,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.008)",
+            "sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+          ],
+          "horizon": -2,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.010)",
+            "sustained high-volume fan-out (flows=695, edge_bytes=5610489, mean_out_degree=3.16)"
+          ],
+          "horizon": -1,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.009)",
+            "sustained high-volume fan-out (flows=519, edge_bytes=2894495, mean_out_degree=2.30)"
+          ],
+          "horizon": 0,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.443029,
+          "evidence": [
+            "model forecast risk at this horizon = 0.443",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 1,
+          "window_index": 166,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.456068,
+          "evidence": [
+            "model forecast risk at this horizon = 0.456",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 2,
+          "window_index": 167,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.466011,
+          "evidence": [
+            "model forecast risk at this horizon = 0.466",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 3,
+          "window_index": 168,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.473734,
+          "evidence": [
+            "model forecast risk at this horizon = 0.474",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 4,
+          "window_index": 169,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.479757,
+          "evidence": [
+            "model forecast risk at this horizon = 0.480",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 5,
+          "window_index": 170,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        }
+      ]
+    },
+    {
+      "t_index": 166,
+      "n_observed": 4,
+      "n_forecast": 5,
+      "stages": [
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.008)",
+            "sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+          ],
+          "horizon": -3,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.010)",
+            "sustained high-volume fan-out (flows=695, edge_bytes=5610489, mean_out_degree=3.16)"
+          ],
+          "horizon": -2,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.009)",
+            "sustained high-volume fan-out (flows=519, edge_bytes=2894495, mean_out_degree=2.30)"
+          ],
+          "horizon": -1,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Command & Control",
+          "status": "observed",
+          "confidence": 0.7,
+          "evidence": [
+            "window carries a ground-truth attack label",
+            "some malicious flows (attack_ratio=0.010)",
+            "sustained high-volume fan-out (flows=427, edge_bytes=2480859, mean_out_degree=1.92)"
+          ],
+          "horizon": 0,
+          "window_index": null,
+          "timestamp": null,
+          "source": "observed-state"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.442886,
+          "evidence": [
+            "model forecast risk at this horizon = 0.443",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 1,
+          "window_index": 167,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.455958,
+          "evidence": [
+            "model forecast risk at this horizon = 0.456",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 2,
+          "window_index": 168,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.465925,
+          "evidence": [
+            "model forecast risk at this horizon = 0.466",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 3,
+          "window_index": 169,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.473666,
+          "evidence": [
+            "model forecast risk at this horizon = 0.474",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 4,
+          "window_index": 170,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        },
+        {
+          "stage": "Reconnaissance",
+          "status": "forecast",
+          "confidence": 0.479704,
+          "evidence": [
+            "model forecast risk at this horizon = 0.480",
+            "present state shows host fan-out (possible recon)"
+          ],
+          "horizon": 5,
+          "window_index": 171,
+          "timestamp": null,
+          "source": "forecast-rollout"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_trajectories": 6,
+    "total_observed": 24,
+    "total_forecast": 30,
+    "forecast_stages_above_threshold": 30,
+    "stage_counts": {
+      "Benign / No Attack Behaviour": 3,
+      "Command & Control": 21,
+      "Reconnaissance": 30
+    }
+  }
+}

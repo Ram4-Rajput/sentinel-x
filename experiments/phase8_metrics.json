@@ -1,0 +1,6319 @@
+{
+  "phase": "8-explainability-propagation-counterfactual-stability",
+  "checkpoint": "D:\\sentinel\\sentinel\\models\\sentinel_x\\model.pt",
+  "combo": "graphsage_lstm",
+  "dataset": "ctu-13",
+  "seq_len": 4,
+  "K": 5,
+  "risk_threshold": 0.42692267894744873,
+  "gnn_type": "graphsage",
+  "attention_available": false,
+  "stability_trials": 12,
+  "stability_epsilon": 0.05,
+  "split_info": {
+    "dataset": "ctu-13",
+    "num_windows": 195,
+    "seq_len": 4,
+    "K": 5,
+    "usable": true,
+    "num_samples": 187,
+    "counts": {
+      "train": 130,
+      "val": 28,
+      "test": 29
+    },
+    "graph_capable": true,
+    "test_positives_by_horizon": {
+      "1": 22,
+      "2": 21,
+      "3": 20,
+      "4": 19,
+      "5": 18
+    }
+  },
+  "simulation_label": "Modelled / simulated outcome.",
+  "created_utc": "2026-09-05T09:14:05.755264+00:00",
+  "python": "3.14.3",
+  "anchors": [
+    {
+      "t_index": 161,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.599659,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001537,
+            "abs_attribution": 0.001537
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001491,
+            "abs_attribution": 0.001491
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000189,
+            "abs_attribution": 0.000189
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -5.7e-05,
+            "abs_attribution": 5.7e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1e-05,
+            "abs_attribution": 1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 2,
+            "timestep": 3,
+            "importance": 0.001376,
+            "node_id": null
+          },
+          {
+            "node_index": 16,
+            "timestep": 2,
+            "importance": 0.000597,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 2,
+            "importance": 0.000518,
+            "node_id": null
+          },
+          {
+            "node_index": 14,
+            "timestep": 0,
+            "importance": 0.000316,
+            "node_id": null
+          },
+          {
+            "node_index": 30,
+            "timestep": 3,
+            "importance": 0.000244,
+            "node_id": null
+          },
+          {
+            "node_index": 222,
+            "timestep": 2,
+            "importance": 0.000158,
+            "node_id": null
+          },
+          {
+            "node_index": 45,
+            "timestep": 2,
+            "importance": 0.000156,
+            "node_id": null
+          },
+          {
+            "node_index": 309,
+            "timestep": 3,
+            "importance": 8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 1,
+            "importance": 7.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 12,
+            "timestep": 3,
+            "importance": 7.5e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000528
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000535
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001965
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002472
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 4,
+        "velocity": 1.0,
+        "peak_velocity": 2,
+        "direction": "balanced",
+        "direction_ratio": 0.5,
+        "mean_branching": 0.5,
+        "persistence": 0.25,
+        "growth": 1.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 0,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 0,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n48"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 2
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.44349,
+          0.456443,
+          0.4663,
+          0.47396,
+          0.479933
+        ],
+        "intervention_risk": [
+          0.443344,
+          0.456306,
+          0.466197,
+          0.47388,
+          0.479871
+        ],
+        "risk_delta": [
+          -0.000146,
+          -0.000138,
+          -0.000103,
+          -8e-05,
+          -6.3e-05
+        ],
+        "latent_shift": [
+          0.010789,
+          0.007989,
+          0.005982,
+          0.004634,
+          0.003608
+        ],
+        "mean_risk_delta": -0.000106,
+        "max_abs_risk_delta": 0.000146,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 5e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.9e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999995,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 162,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.604299,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001841,
+            "abs_attribution": 0.001841
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001797,
+            "abs_attribution": 0.001797
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000182,
+            "abs_attribution": 0.000182
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -7.1e-05,
+            "abs_attribution": 7.1e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 7e-06,
+            "abs_attribution": 7e-06
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 12,
+            "timestep": 3,
+            "importance": 0.000926,
+            "node_id": null
+          },
+          {
+            "node_index": 16,
+            "timestep": 1,
+            "importance": 0.000683,
+            "node_id": null
+          },
+          {
+            "node_index": 2,
+            "timestep": 2,
+            "importance": 0.000477,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 3,
+            "importance": 0.000284,
+            "node_id": null
+          },
+          {
+            "node_index": 0,
+            "timestep": 3,
+            "importance": 0.000163,
+            "node_id": null
+          },
+          {
+            "node_index": 241,
+            "timestep": 3,
+            "importance": 0.000108,
+            "node_id": null
+          },
+          {
+            "node_index": 25,
+            "timestep": 3,
+            "importance": 9.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 30,
+            "timestep": 2,
+            "importance": 8.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 222,
+            "timestep": 1,
+            "importance": 8.2e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 45,
+            "timestep": 1,
+            "importance": 8.1e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000375
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.001204
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001059
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002548
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 6,
+        "velocity": 1.5,
+        "peak_velocity": 2,
+        "direction": "balanced",
+        "direction_ratio": 0.5,
+        "mean_branching": 0.75,
+        "persistence": 0.25,
+        "growth": 2.0,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 0,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n48"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 6,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 12
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443401,
+          0.456365,
+          0.46624,
+          0.473914,
+          0.479897
+        ],
+        "intervention_risk": [
+          0.44323,
+          0.456221,
+          0.466132,
+          0.473829,
+          0.479831
+        ],
+        "risk_delta": [
+          -0.000171,
+          -0.000144,
+          -0.000108,
+          -8.5e-05,
+          -6.6e-05
+        ],
+        "latent_shift": [
+          0.011295,
+          0.008368,
+          0.006271,
+          0.004866,
+          0.00379
+        ],
+        "mean_risk_delta": -0.000115,
+        "max_abs_risk_delta": 0.000171,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 5e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 2.4e-05,
+        "max_risk_drift": 2e-06,
+        "stability_score": 0.999995,
+        "per_horizon_risk_drift": [
+          1e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 163,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.612491,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001774,
+            "abs_attribution": 0.001774
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.00173,
+            "abs_attribution": 0.00173
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000183,
+            "abs_attribution": 0.000183
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -7.6e-05,
+            "abs_attribution": 7.6e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.2e-05,
+            "abs_attribution": 1.2e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 16,
+            "timestep": 0,
+            "importance": 0.000682,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 0.000565,
+            "node_id": null
+          },
+          {
+            "node_index": 2,
+            "timestep": 1,
+            "importance": 0.000394,
+            "node_id": null
+          },
+          {
+            "node_index": 12,
+            "timestep": 2,
+            "importance": 0.000258,
+            "node_id": null
+          },
+          {
+            "node_index": 255,
+            "timestep": 3,
+            "importance": 0.000205,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 0,
+            "importance": 0.000145,
+            "node_id": null
+          },
+          {
+            "node_index": 249,
+            "timestep": 3,
+            "importance": 0.000112,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 2,
+            "importance": 0.000105,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 3,
+            "importance": 9.7e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 21,
+            "timestep": 3,
+            "importance": 8.5e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.0011
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000746
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001245
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001952
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 9,
+        "velocity": 2.25,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.444444,
+        "mean_branching": 1.0,
+        "persistence": 0.25,
+        "growth": 2.3,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n48"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 6,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "newly_affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 16
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443244,
+          0.456239,
+          0.466143,
+          0.473837,
+          0.479837
+        ],
+        "intervention_risk": [
+          0.443212,
+          0.456212,
+          0.466123,
+          0.473822,
+          0.479825
+        ],
+        "risk_delta": [
+          -3.2e-05,
+          -2.7e-05,
+          -2e-05,
+          -1.6e-05,
+          -1.2e-05
+        ],
+        "latent_shift": [
+          0.002296,
+          0.00155,
+          0.001156,
+          0.000901,
+          0.000702
+        ],
+        "mean_risk_delta": -2.1e-05,
+        "max_abs_risk_delta": 3.2e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 4e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.2e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999996,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 164,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.621933,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.00136,
+            "abs_attribution": 0.00136
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001327,
+            "abs_attribution": 0.001327
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000224,
+            "abs_attribution": 0.000224
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -1.3e-05,
+            "abs_attribution": 1.3e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.1e-05,
+            "abs_attribution": 1.1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 2,
+            "timestep": 0,
+            "importance": 0.000323,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 0.000219,
+            "node_id": null
+          },
+          {
+            "node_index": 12,
+            "timestep": 1,
+            "importance": 0.000218,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 2,
+            "importance": 0.000197,
+            "node_id": null
+          },
+          {
+            "node_index": 12,
+            "timestep": 3,
+            "importance": 0.000176,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 3,
+            "importance": 0.000153,
+            "node_id": null
+          },
+          {
+            "node_index": 217,
+            "timestep": 3,
+            "importance": 0.000147,
+            "node_id": null
+          },
+          {
+            "node_index": 14,
+            "timestep": 3,
+            "importance": 7.7e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 3,
+            "importance": 7.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 48,
+            "timestep": 3,
+            "importance": 7.6e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000577
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000809
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001053
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001705
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 8,
+        "velocity": 2.0,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.4,
+        "mean_branching": 1.0,
+        "persistence": 0.3125,
+        "growth": 2.1,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "newly_affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 7,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n14"
+            ],
+            "newly_affected": [
+              "n14"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 8,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 2
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443064,
+          0.456088,
+          0.466026,
+          0.473745,
+          0.479765
+        ],
+        "intervention_risk": [
+          0.443046,
+          0.456072,
+          0.466014,
+          0.473736,
+          0.479759
+        ],
+        "risk_delta": [
+          -1.8e-05,
+          -1.6e-05,
+          -1.1e-05,
+          -9e-06,
+          -7e-06
+        ],
+        "latent_shift": [
+          0.001658,
+          0.000927,
+          0.000664,
+          0.000515,
+          0.000401
+        ],
+        "mean_risk_delta": -1.2e-05,
+        "max_abs_risk_delta": 1.8e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 3e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 6e-06,
+        "max_risk_drift": 0.0,
+        "stability_score": 0.999997,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 165,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.62345,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.00149,
+            "abs_attribution": 0.00149
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001456,
+            "abs_attribution": 0.001456
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000149,
+            "abs_attribution": 0.000149
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -7e-05,
+            "abs_attribution": 7e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.2e-05,
+            "abs_attribution": 1.2e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 9,
+            "timestep": 3,
+            "importance": 0.000534,
+            "node_id": null
+          },
+          {
+            "node_index": 0,
+            "timestep": 3,
+            "importance": 0.0002,
+            "node_id": null
+          },
+          {
+            "node_index": 12,
+            "timestep": 0,
+            "importance": 0.000187,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 1,
+            "importance": 0.000153,
+            "node_id": null
+          },
+          {
+            "node_index": 119,
+            "timestep": 3,
+            "importance": 0.000106,
+            "node_id": null
+          },
+          {
+            "node_index": 62,
+            "timestep": 3,
+            "importance": 0.000102,
+            "node_id": null
+          },
+          {
+            "node_index": 29,
+            "timestep": 3,
+            "importance": 8.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 126,
+            "timestep": 3,
+            "importance": 7.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 44,
+            "timestep": 3,
+            "importance": 6.7e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 3,
+            "importance": 6.4e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000595
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000681
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000812
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002579
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 7,
+        "velocity": 1.75,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.333333,
+        "mean_branching": 1.0,
+        "persistence": 0.392857,
+        "growth": 1.6,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "newly_affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 5,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n14"
+            ],
+            "newly_affected": [
+              "n14"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n29"
+            ],
+            "newly_affected": [
+              "n29"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 7,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 9
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443029,
+          0.456068,
+          0.466011,
+          0.473734,
+          0.479757
+        ],
+        "intervention_risk": [
+          0.442935,
+          0.455978,
+          0.465943,
+          0.473681,
+          0.479715
+        ],
+        "risk_delta": [
+          -9.4e-05,
+          -9.1e-05,
+          -6.8e-05,
+          -5.3e-05,
+          -4.1e-05
+        ],
+        "latent_shift": [
+          0.007246,
+          0.005274,
+          0.003951,
+          0.00306,
+          0.002381
+        ],
+        "mean_risk_delta": -6.9e-05,
+        "max_abs_risk_delta": 9.4e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 2e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 7e-06,
+        "max_risk_drift": 0.0,
+        "stability_score": 0.999998,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 166,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.630797,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001665,
+            "abs_attribution": 0.001665
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001628,
+            "abs_attribution": 0.001628
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.00011,
+            "abs_attribution": 0.00011
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -8.6e-05,
+            "abs_attribution": 8.6e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.2e-05,
+            "abs_attribution": 1.2e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 5,
+            "timestep": 3,
+            "importance": 0.000621,
+            "node_id": null
+          },
+          {
+            "node_index": 9,
+            "timestep": 2,
+            "importance": 0.000179,
+            "node_id": null
+          },
+          {
+            "node_index": 8,
+            "timestep": 3,
+            "importance": 0.00016,
+            "node_id": null
+          },
+          {
+            "node_index": 124,
+            "timestep": 3,
+            "importance": 0.000146,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 0,
+            "importance": 0.000126,
+            "node_id": null
+          },
+          {
+            "node_index": 62,
+            "timestep": 2,
+            "importance": 7.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 9,
+            "timestep": 3,
+            "importance": 7.5e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 214,
+            "timestep": 3,
+            "importance": 5.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 215,
+            "timestep": 3,
+            "importance": 5e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 12,
+            "timestep": 1,
+            "importance": 4.9e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000499
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000473
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001305
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002268
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 9,
+        "velocity": 2.25,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.272727,
+        "mean_branching": 1.0,
+        "persistence": 0.333333,
+        "growth": 1.9,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "newly_affected": [
+              "n18",
+              "n21",
+              "n255"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n14"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n14"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n29"
+            ],
+            "newly_affected": [
+              "n29"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 7,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 5
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442886,
+          0.455958,
+          0.465925,
+          0.473666,
+          0.479704
+        ],
+        "intervention_risk": [
+          0.442786,
+          0.455862,
+          0.465853,
+          0.47361,
+          0.47966
+        ],
+        "risk_delta": [
+          -0.000101,
+          -9.6e-05,
+          -7.3e-05,
+          -5.7e-05,
+          -4.4e-05
+        ],
+        "latent_shift": [
+          0.007543,
+          0.005585,
+          0.004216,
+          0.00327,
+          0.002544
+        ],
+        "mean_risk_delta": -7.4e-05,
+        "max_abs_risk_delta": 0.000101,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 3e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.2e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999997,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 167,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.632848,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001193,
+            "abs_attribution": 0.001193
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001164,
+            "abs_attribution": 0.001164
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000178,
+            "abs_attribution": 0.000178
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -3e-05,
+            "abs_attribution": 3e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.1e-05,
+            "abs_attribution": 1.1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 6,
+            "timestep": 3,
+            "importance": 0.0003,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 2,
+            "importance": 0.000158,
+            "node_id": null
+          },
+          {
+            "node_index": 42,
+            "timestep": 3,
+            "importance": 0.000156,
+            "node_id": null
+          },
+          {
+            "node_index": 68,
+            "timestep": 3,
+            "importance": 0.000132,
+            "node_id": null
+          },
+          {
+            "node_index": 9,
+            "timestep": 1,
+            "importance": 0.000129,
+            "node_id": null
+          },
+          {
+            "node_index": 0,
+            "timestep": 3,
+            "importance": 9.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 124,
+            "timestep": 2,
+            "importance": 9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 198,
+            "timestep": 3,
+            "importance": 5.2e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 199,
+            "timestep": 3,
+            "importance": 5.2e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 62,
+            "timestep": 1,
+            "importance": 5e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000328
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000793
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001143
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001431
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 7,
+        "velocity": 1.75,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.222222,
+        "mean_branching": 1.0,
+        "persistence": 0.428571,
+        "growth": 1.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n14"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n14"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n29"
+            ],
+            "newly_affected": [
+              "n29"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 4,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n72"
+            ],
+            "newly_affected": [
+              "n72"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 7,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 6
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442847,
+          0.455921,
+          0.465896,
+          0.473643,
+          0.479686
+        ],
+        "intervention_risk": [
+          0.442739,
+          0.455819,
+          0.465819,
+          0.473584,
+          0.479639
+        ],
+        "risk_delta": [
+          -0.000108,
+          -0.000102,
+          -7.7e-05,
+          -6e-05,
+          -4.7e-05
+        ],
+        "latent_shift": [
+          0.008228,
+          0.005911,
+          0.004442,
+          0.003448,
+          0.002684
+        ],
+        "mean_risk_delta": -7.9e-05,
+        "max_abs_risk_delta": 0.000108,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 3e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 8e-06,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999997,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 168,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.632757,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001217,
+            "abs_attribution": 0.001217
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001187,
+            "abs_attribution": 0.001187
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000177,
+            "abs_attribution": 0.000177
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -4.1e-05,
+            "abs_attribution": 4.1e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.1e-05,
+            "abs_attribution": 1.1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 0.00045,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 3,
+            "importance": 0.000228,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 1,
+            "importance": 0.000154,
+            "node_id": null
+          },
+          {
+            "node_index": 156,
+            "timestep": 3,
+            "importance": 0.000123,
+            "node_id": null
+          },
+          {
+            "node_index": 48,
+            "timestep": 3,
+            "importance": 0.000117,
+            "node_id": null
+          },
+          {
+            "node_index": 9,
+            "timestep": 0,
+            "importance": 0.000103,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 2,
+            "importance": 0.000102,
+            "node_id": null
+          },
+          {
+            "node_index": 124,
+            "timestep": 1,
+            "importance": 6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 15,
+            "timestep": 3,
+            "importance": 5.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 225,
+            "timestep": 3,
+            "importance": 4.6e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000575
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000743
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000722
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001785
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 9,
+        "velocity": 2.25,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.222222,
+        "mean_branching": 1.0,
+        "persistence": 0.333333,
+        "growth": 1.9,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n29"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n29"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n8",
+              "n9"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 5,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n72"
+            ],
+            "newly_affected": [
+              "n72"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 1
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442849,
+          0.455922,
+          0.465897,
+          0.473644,
+          0.479686
+        ],
+        "intervention_risk": [
+          0.442761,
+          0.455837,
+          0.465833,
+          0.473594,
+          0.479647
+        ],
+        "risk_delta": [
+          -8.8e-05,
+          -8.4e-05,
+          -6.4e-05,
+          -5e-05,
+          -3.9e-05
+        ],
+        "latent_shift": [
+          0.006561,
+          0.004892,
+          0.003711,
+          0.002882,
+          0.002243
+        ],
+        "mean_risk_delta": -6.5e-05,
+        "max_abs_risk_delta": 8.8e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 2e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 9e-06,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999998,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 169,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.632567,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001153,
+            "abs_attribution": 0.001153
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001127,
+            "abs_attribution": 0.001127
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -9.7e-05,
+            "abs_attribution": 9.7e-05
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -9.2e-05,
+            "abs_attribution": 9.2e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.2e-05,
+            "abs_attribution": 1.2e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 10,
+            "timestep": 3,
+            "importance": 0.000425,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 2,
+            "importance": 0.000158,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 0,
+            "importance": 0.000141,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 1,
+            "importance": 7.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 23,
+            "timestep": 3,
+            "importance": 7.3e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 2,
+            "importance": 7.2e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 99,
+            "timestep": 3,
+            "importance": 7.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 101,
+            "timestep": 3,
+            "importance": 6.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 13,
+            "timestep": 3,
+            "importance": 6.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 37,
+            "timestep": 3,
+            "importance": 6.2e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000543
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000461
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000925
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001633
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 10,
+        "velocity": 2.5,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.272727,
+        "mean_branching": 1.0,
+        "persistence": 0.3,
+        "growth": 2.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n8",
+              "n9"
+            ],
+            "newly_affected": [
+              "n1",
+              "n8",
+              "n9"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n72"
+            ],
+            "newly_affected": [
+              "n0",
+              "n72"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 5,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 8,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "newly_affected": [
+              "n225",
+              "n23"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 10,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 10
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442852,
+          0.455926,
+          0.4659,
+          0.473646,
+          0.479688
+        ],
+        "intervention_risk": [
+          0.442777,
+          0.455853,
+          0.465845,
+          0.473604,
+          0.479655
+        ],
+        "risk_delta": [
+          -7.5e-05,
+          -7.3e-05,
+          -5.5e-05,
+          -4.3e-05,
+          -3.3e-05
+        ],
+        "latent_shift": [
+          0.005749,
+          0.004214,
+          0.003175,
+          0.002461,
+          0.001915
+        ],
+        "mean_risk_delta": -5.6e-05,
+        "max_abs_risk_delta": 7.5e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 2e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 6e-06,
+        "max_risk_drift": 0.0,
+        "stability_score": 0.999998,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 170,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.630142,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001707,
+            "abs_attribution": 0.001707
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.00167,
+            "abs_attribution": 0.00167
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000159,
+            "abs_attribution": 0.000159
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -4.9e-05,
+            "abs_attribution": 4.9e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.2e-05,
+            "abs_attribution": 1.2e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 13,
+            "timestep": 3,
+            "importance": 0.001138,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 2,
+            "importance": 0.000145,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 1,
+            "importance": 0.000131,
+            "node_id": null
+          },
+          {
+            "node_index": 87,
+            "timestep": 3,
+            "importance": 0.000121,
+            "node_id": null
+          },
+          {
+            "node_index": 7,
+            "timestep": 3,
+            "importance": 9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 0,
+            "importance": 6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 9,
+            "timestep": 3,
+            "importance": 5.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 16,
+            "timestep": 3,
+            "importance": 5.3e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 64,
+            "timestep": 3,
+            "importance": 4.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 65,
+            "timestep": 3,
+            "importance": 4.9e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000333
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.00058
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000865
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002658
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 11,
+        "velocity": 2.75,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.363636,
+        "mean_branching": 1.0,
+        "persistence": 0.25,
+        "growth": 2.7,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n72"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n72"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "newly_affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n215",
+              "n6"
+            ],
+            "newly_affected": [
+              "n215",
+              "n6"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 11,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 13
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442905,
+          0.45596,
+          0.465926,
+          0.473667,
+          0.479705
+        ],
+        "intervention_risk": [
+          0.442788,
+          0.455855,
+          0.465847,
+          0.473605,
+          0.479657
+        ],
+        "risk_delta": [
+          -0.000116,
+          -0.000104,
+          -7.9e-05,
+          -6.2e-05,
+          -4.8e-05
+        ],
+        "latent_shift": [
+          0.008142,
+          0.006048,
+          0.004572,
+          0.003552,
+          0.002764
+        ],
+        "mean_risk_delta": -8.2e-05,
+        "max_abs_risk_delta": 0.000116,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 6e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 2.3e-05,
+        "max_risk_drift": 2e-06,
+        "stability_score": 0.999994,
+        "per_horizon_risk_drift": [
+          1e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 171,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.630816,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001504,
+            "abs_attribution": 0.001504
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001472,
+            "abs_attribution": 0.001472
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000216,
+            "abs_attribution": 0.000216
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -2.1e-05,
+            "abs_attribution": 2.1e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.3e-05,
+            "abs_attribution": 1.3e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 13,
+            "timestep": 2,
+            "importance": 0.000362,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 3,
+            "importance": 0.000167,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 3,
+            "importance": 0.00012,
+            "node_id": null
+          },
+          {
+            "node_index": 51,
+            "timestep": 3,
+            "importance": 0.000119,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 0,
+            "importance": 0.000109,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 1,
+            "importance": 0.000106,
+            "node_id": null
+          },
+          {
+            "node_index": 212,
+            "timestep": 3,
+            "importance": 7.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 2,
+            "timestep": 3,
+            "importance": 6.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 3,
+            "importance": 3.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 0,
+            "timestep": 3,
+            "importance": 3.8e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000407
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000525
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.00134
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001659
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 8,
+        "velocity": 2.0,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.375,
+        "mean_branching": 0.75,
+        "persistence": 0.25,
+        "growth": 1.7,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n48"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "newly_affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n215",
+              "n6"
+            ],
+            "newly_affected": [
+              "n215",
+              "n6"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 8,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 8,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 13
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442892,
+          0.455949,
+          0.465918,
+          0.473661,
+          0.4797
+        ],
+        "intervention_risk": [
+          0.442833,
+          0.455899,
+          0.46588,
+          0.473631,
+          0.479676
+        ],
+        "risk_delta": [
+          -5.8e-05,
+          -5e-05,
+          -3.8e-05,
+          -3e-05,
+          -2.3e-05
+        ],
+        "latent_shift": [
+          0.004274,
+          0.002909,
+          0.002202,
+          0.001718,
+          0.001339
+        ],
+        "mean_risk_delta": -4e-05,
+        "max_abs_risk_delta": 5.8e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 3e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999997,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 172,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.627818,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001832,
+            "abs_attribution": 0.001832
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.0018,
+            "abs_attribution": 0.0018
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000117,
+            "abs_attribution": 0.000117
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -0.000105,
+            "abs_attribution": 0.000105
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.1e-05,
+            "abs_attribution": 1.1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 10,
+            "timestep": 3,
+            "importance": 0.00084,
+            "node_id": null
+          },
+          {
+            "node_index": 13,
+            "timestep": 1,
+            "importance": 0.000351,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 9.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 17,
+            "timestep": 3,
+            "importance": 8.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 0,
+            "importance": 8.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 2,
+            "importance": 5.3e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 176,
+            "timestep": 2,
+            "importance": 5e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 142,
+            "timestep": 3,
+            "importance": 4.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 2,
+            "importance": 4.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 143,
+            "timestep": 3,
+            "importance": 4.4e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000393
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000976
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000931
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002006
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 7,
+        "velocity": 1.75,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.428571,
+        "mean_branching": 0.75,
+        "persistence": 0.25,
+        "growth": 1.2,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "newly_affected": [
+              "n225",
+              "n23",
+              "n8"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n215",
+              "n6"
+            ],
+            "newly_affected": [
+              "n215",
+              "n6"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 5,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 5,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n51",
+              "n9"
+            ],
+            "newly_affected": [
+              "n51",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 7,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 10
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.442948,
+          0.455998,
+          0.465956,
+          0.473691,
+          0.479723
+        ],
+        "intervention_risk": [
+          0.442827,
+          0.455886,
+          0.465872,
+          0.473624,
+          0.479671
+        ],
+        "risk_delta": [
+          -0.000121,
+          -0.000112,
+          -8.4e-05,
+          -6.6e-05,
+          -5.1e-05
+        ],
+        "latent_shift": [
+          0.008857,
+          0.006493,
+          0.004892,
+          0.003797,
+          0.002954
+        ],
+        "mean_risk_delta": -8.7e-05,
+        "max_abs_risk_delta": 0.000121,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 4e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.5e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999996,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 173,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.613126,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.000352,
+            "abs_attribution": 0.000352
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.000319,
+            "abs_attribution": 0.000319
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.00012,
+            "abs_attribution": 0.00012
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -6.1e-05,
+            "abs_attribution": 6.1e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 7e-06,
+            "abs_attribution": 7e-06
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 6,
+            "timestep": 3,
+            "importance": 0.002331,
+            "node_id": null
+          },
+          {
+            "node_index": 13,
+            "timestep": 0,
+            "importance": 0.000317,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 2,
+            "importance": 0.000307,
+            "node_id": null
+          },
+          {
+            "node_index": 273,
+            "timestep": 3,
+            "importance": 0.000131,
+            "node_id": null
+          },
+          {
+            "node_index": 20,
+            "timestep": 3,
+            "importance": 9.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 3,
+            "importance": 6.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 17,
+            "timestep": 2,
+            "importance": 4.7e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 59,
+            "timestep": 3,
+            "importance": 4.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 1,
+            "importance": 4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 1,
+            "importance": 3.6e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000761
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000613
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001078
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.003531
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 6,
+        "velocity": 1.5,
+        "peak_velocity": 2,
+        "direction": "fan-in",
+        "direction_ratio": 0.333333,
+        "mean_branching": 0.75,
+        "persistence": 0.291667,
+        "growth": 1.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n215",
+              "n6"
+            ],
+            "newly_affected": [
+              "n215",
+              "n6"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 2,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n51",
+              "n9"
+            ],
+            "newly_affected": [
+              "n51",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n284",
+              "n57",
+              "n9"
+            ],
+            "newly_affected": [
+              "n284",
+              "n57"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 6
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443236,
+          0.456222,
+          0.466128,
+          0.473826,
+          0.479828
+        ],
+        "intervention_risk": [
+          0.44299,
+          0.456018,
+          0.465977,
+          0.473708,
+          0.479736
+        ],
+        "risk_delta": [
+          -0.000246,
+          -0.000204,
+          -0.000151,
+          -0.000118,
+          -9.2e-05
+        ],
+        "latent_shift": [
+          0.01671,
+          0.011919,
+          0.008791,
+          0.00681,
+          0.005296
+        ],
+        "mean_risk_delta": -0.000162,
+        "max_abs_risk_delta": 0.000246,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 1.9e-05,
+        "mean_risk_drift": 1e-06,
+        "max_latent_drift": 7.1e-05,
+        "max_risk_drift": 2e-06,
+        "stability_score": 0.999981,
+        "per_horizon_risk_drift": [
+          0.0,
+          1e-06,
+          1e-06,
+          1e-06,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 174,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.619649,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.000778,
+            "abs_attribution": 0.000778
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.000746,
+            "abs_attribution": 0.000746
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000121,
+            "abs_attribution": 0.000121
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -8.1e-05,
+            "abs_attribution": 8.1e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 9e-06,
+            "abs_attribution": 9e-06
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 6,
+            "timestep": 2,
+            "importance": 0.001228,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 3,
+            "importance": 0.000316,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 1,
+            "importance": 0.000265,
+            "node_id": null
+          },
+          {
+            "node_index": 18,
+            "timestep": 3,
+            "importance": 0.0001,
+            "node_id": null
+          },
+          {
+            "node_index": 52,
+            "timestep": 3,
+            "importance": 6.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 138,
+            "timestep": 3,
+            "importance": 4.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 20,
+            "timestep": 2,
+            "importance": 4.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 38,
+            "timestep": 3,
+            "importance": 4.7e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 39,
+            "timestep": 3,
+            "importance": 4.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 174,
+            "timestep": 3,
+            "importance": 3.8e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000444
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000748
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.002031
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001391
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 6,
+        "velocity": 1.5,
+        "peak_velocity": 2,
+        "direction": "fan-in",
+        "direction_ratio": 0.333333,
+        "mean_branching": 0.75,
+        "persistence": 0.291667,
+        "growth": 2.0,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [],
+            "newly_affected": [],
+            "n_affected": 0,
+            "n_newly_affected": 0,
+            "cumulative_affected": 0,
+            "suspicious_edges": 0,
+            "out_edges": 0,
+            "in_edges": 0,
+            "branching": 0.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n51",
+              "n9"
+            ],
+            "newly_affected": [
+              "n51",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n284",
+              "n57",
+              "n9"
+            ],
+            "newly_affected": [
+              "n284",
+              "n57"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n34"
+            ],
+            "newly_affected": [
+              "n1",
+              "n34"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 6,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 6
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.44311,
+          0.456122,
+          0.466051,
+          0.473765,
+          0.479781
+        ],
+        "intervention_risk": [
+          0.442985,
+          0.456015,
+          0.465971,
+          0.473703,
+          0.479732
+        ],
+        "risk_delta": [
+          -0.000125,
+          -0.000106,
+          -7.9e-05,
+          -6.2e-05,
+          -4.8e-05
+        ],
+        "latent_shift": [
+          0.008839,
+          0.006149,
+          0.004603,
+          0.003583,
+          0.002791
+        ],
+        "mean_risk_delta": -8.4e-05,
+        "max_abs_risk_delta": 0.000125,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 6e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.3e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999994,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 175,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.615227,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001351,
+            "abs_attribution": 0.001351
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001323,
+            "abs_attribution": 0.001323
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000154,
+            "abs_attribution": 0.000154
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -6.5e-05,
+            "abs_attribution": 6.5e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1e-05,
+            "abs_attribution": 1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 8,
+            "timestep": 3,
+            "importance": 0.000486,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 1,
+            "importance": 0.000233,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 0,
+            "importance": 0.000214,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 3,
+            "importance": 0.000209,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 2,
+            "importance": 0.000114,
+            "node_id": null
+          },
+          {
+            "node_index": 271,
+            "timestep": 3,
+            "importance": 9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 190,
+            "timestep": 3,
+            "importance": 7.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 18,
+            "timestep": 2,
+            "importance": 5.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 2,
+            "importance": 5.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 0,
+            "timestep": 3,
+            "importance": 3.6e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000549
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000713
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000858
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001719
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 9,
+        "velocity": 2.25,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.333333,
+        "mean_branching": 1.0,
+        "persistence": 0.277778,
+        "growth": 2.3,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n51",
+              "n9"
+            ],
+            "newly_affected": [
+              "n51",
+              "n9"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n284",
+              "n57",
+              "n9"
+            ],
+            "newly_affected": [
+              "n284",
+              "n57"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 4,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n34"
+            ],
+            "newly_affected": [
+              "n1",
+              "n34"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 6,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 8
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443195,
+          0.456186,
+          0.466101,
+          0.473804,
+          0.479811
+        ],
+        "intervention_risk": [
+          0.443133,
+          0.456127,
+          0.466056,
+          0.473769,
+          0.479784
+        ],
+        "risk_delta": [
+          -6.1e-05,
+          -5.8e-05,
+          -4.5e-05,
+          -3.5e-05,
+          -2.7e-05
+        ],
+        "latent_shift": [
+          0.00428,
+          0.003373,
+          0.002593,
+          0.002017,
+          0.00157
+        ],
+        "mean_risk_delta": -4.5e-05,
+        "max_abs_risk_delta": 6.1e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 4e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 9e-06,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999996,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 176,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.604449,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001787,
+            "abs_attribution": 0.001787
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001758,
+            "abs_attribution": 0.001758
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000185,
+            "abs_attribution": 0.000185
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -5.4e-05,
+            "abs_attribution": 5.4e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.1e-05,
+            "abs_attribution": 1.1e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 4,
+            "timestep": 3,
+            "importance": 0.001308,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 0,
+            "importance": 0.000168,
+            "node_id": null
+          },
+          {
+            "node_index": 8,
+            "timestep": 2,
+            "importance": 0.000163,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 3,
+            "importance": 0.000137,
+            "node_id": null
+          },
+          {
+            "node_index": 35,
+            "timestep": 3,
+            "importance": 0.000134,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 1,
+            "importance": 8.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 1,
+            "importance": 8.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 2,
+            "importance": 7.6e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 190,
+            "timestep": 2,
+            "importance": 6.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 16,
+            "timestep": 3,
+            "importance": 5.9e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000473
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.00057
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000956
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002352
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 10,
+        "velocity": 2.5,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.3,
+        "mean_branching": 1.0,
+        "persistence": 0.275,
+        "growth": 2.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n284",
+              "n57",
+              "n9"
+            ],
+            "newly_affected": [
+              "n284",
+              "n57",
+              "n9"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n34"
+            ],
+            "newly_affected": [
+              "n1",
+              "n34"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 5,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 8,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n49"
+            ],
+            "newly_affected": [
+              "n0",
+              "n49"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 10,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 4
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443403,
+          0.456342,
+          0.466222,
+          0.473899,
+          0.479885
+        ],
+        "intervention_risk": [
+          0.443292,
+          0.456241,
+          0.466146,
+          0.47384,
+          0.479839
+        ],
+        "risk_delta": [
+          -0.000111,
+          -0.000101,
+          -7.6e-05,
+          -5.9e-05,
+          -4.6e-05
+        ],
+        "latent_shift": [
+          0.007892,
+          0.005879,
+          0.004413,
+          0.003422,
+          0.002664
+        ],
+        "mean_risk_delta": -7.9e-05,
+        "max_abs_risk_delta": 0.000111,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 5e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 3.1e-05,
+        "max_risk_drift": 2e-06,
+        "stability_score": 0.999995,
+        "per_horizon_risk_drift": [
+          1e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 177,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.596864,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.000969,
+            "abs_attribution": 0.000969
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.000917,
+            "abs_attribution": 0.000917
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000149,
+            "abs_attribution": 0.000149
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -9.6e-05,
+            "abs_attribution": 9.6e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 8e-06,
+            "abs_attribution": 8e-06
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 16,
+            "timestep": 3,
+            "importance": 0.001559,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 0.001314,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 2,
+            "importance": 0.000386,
+            "node_id": null
+          },
+          {
+            "node_index": 8,
+            "timestep": 1,
+            "importance": 0.000148,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 0,
+            "importance": 8.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 5,
+            "timestep": 2,
+            "importance": 7.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 2,
+            "timestep": 3,
+            "importance": 7.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 228,
+            "timestep": 3,
+            "importance": 7.1e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 0,
+            "importance": 6.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 10,
+            "timestep": 1,
+            "importance": 5.4e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000414
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000637
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001016
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.00369
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 10,
+        "velocity": 2.5,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.3,
+        "mean_branching": 1.0,
+        "persistence": 0.275,
+        "growth": 2.6,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n1",
+              "n34"
+            ],
+            "newly_affected": [
+              "n1",
+              "n34"
+            ],
+            "n_affected": 2,
+            "n_newly_affected": 2,
+            "cumulative_affected": 2,
+            "suspicious_edges": 1,
+            "out_edges": 1,
+            "in_edges": 1,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 5,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n49"
+            ],
+            "newly_affected": [
+              "n0",
+              "n49"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 2,
+            "cumulative_affected": 7,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "newly_affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 10,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 16
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443547,
+          0.456476,
+          0.466325,
+          0.47398,
+          0.479948
+        ],
+        "intervention_risk": [
+          0.44333,
+          0.456292,
+          0.466188,
+          0.473873,
+          0.479865
+        ],
+        "risk_delta": [
+          -0.000217,
+          -0.000184,
+          -0.000137,
+          -0.000107,
+          -8.3e-05
+        ],
+        "latent_shift": [
+          0.014701,
+          0.0107,
+          0.007939,
+          0.006151,
+          0.004789
+        ],
+        "mean_risk_delta": -0.000146,
+        "max_abs_risk_delta": 0.000217,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 1.1e-05,
+        "mean_risk_drift": 1e-06,
+        "max_latent_drift": 3.4e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999989,
+        "per_horizon_risk_drift": [
+          1e-06,
+          1e-06,
+          1e-06,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 178,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.611061,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.001498,
+            "abs_attribution": 0.001498
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.00145,
+            "abs_attribution": 0.00145
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000158,
+            "abs_attribution": 0.000158
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -7.7e-05,
+            "abs_attribution": 7.7e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 9e-06,
+            "abs_attribution": 9e-06
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 6,
+            "timestep": 3,
+            "importance": 0.000562,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 2,
+            "importance": 0.000394,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 1,
+            "importance": 0.000331,
+            "node_id": null
+          },
+          {
+            "node_index": 16,
+            "timestep": 2,
+            "importance": 0.000289,
+            "node_id": null
+          },
+          {
+            "node_index": 52,
+            "timestep": 3,
+            "importance": 0.000197,
+            "node_id": null
+          },
+          {
+            "node_index": 8,
+            "timestep": 0,
+            "importance": 0.000118,
+            "node_id": null
+          },
+          {
+            "node_index": 268,
+            "timestep": 3,
+            "importance": 0.000109,
+            "node_id": null
+          },
+          {
+            "node_index": 3,
+            "timestep": 3,
+            "importance": 0.000102,
+            "node_id": null
+          },
+          {
+            "node_index": 93,
+            "timestep": 3,
+            "importance": 5.7e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 7,
+            "timestep": 3,
+            "importance": 5.2e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000454
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000701
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001153
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.001803
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 10,
+        "velocity": 2.5,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.3,
+        "mean_branching": 1.0,
+        "persistence": 0.3,
+        "growth": 2.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "newly_affected": [
+              "n3",
+              "n4",
+              "n41"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n49"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n49"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "newly_affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n43"
+            ],
+            "newly_affected": [
+              "n43"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 10,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 6
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443272,
+          0.456267,
+          0.466164,
+          0.473854,
+          0.47985
+        ],
+        "intervention_risk": [
+          0.443171,
+          0.45617,
+          0.46609,
+          0.473796,
+          0.479805
+        ],
+        "risk_delta": [
+          -0.0001,
+          -9.7e-05,
+          -7.3e-05,
+          -5.7e-05,
+          -4.5e-05
+        ],
+        "latent_shift": [
+          0.007567,
+          0.005645,
+          0.004256,
+          0.003299,
+          0.002567
+        ],
+        "mean_risk_delta": -7.5e-05,
+        "max_abs_risk_delta": 0.0001,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 4e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.6e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999996,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 179,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.606129,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.002445,
+            "abs_attribution": 0.002445
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.002392,
+            "abs_attribution": 0.002392
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -0.000124,
+            "abs_attribution": 0.000124
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -9.9e-05,
+            "abs_attribution": 9.9e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 7e-06,
+            "abs_attribution": 7e-06
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 9,
+            "timestep": 3,
+            "importance": 0.001745,
+            "node_id": null
+          },
+          {
+            "node_index": 16,
+            "timestep": 1,
+            "importance": 0.000517,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 1,
+            "importance": 0.000346,
+            "node_id": null
+          },
+          {
+            "node_index": 4,
+            "timestep": 0,
+            "importance": 0.00028,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 2,
+            "importance": 0.000223,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 9.4e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 3,
+            "importance": 8.9e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 52,
+            "timestep": 2,
+            "importance": 6.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 39,
+            "timestep": 3,
+            "importance": 4.8e-05,
+            "node_id": null
+          },
+          {
+            "node_index": 222,
+            "timestep": 3,
+            "importance": 4.2e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.000515
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.001141
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.000861
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.003083
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 10,
+        "velocity": 2.5,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.3,
+        "mean_branching": 1.0,
+        "persistence": 0.3,
+        "growth": 2.2,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n49"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n49"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "newly_affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n43"
+            ],
+            "newly_affected": [
+              "n43"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 7,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n2",
+              "n3",
+              "n7"
+            ],
+            "newly_affected": [
+              "n2",
+              "n3",
+              "n7"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 10,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 9
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443367,
+          0.456332,
+          0.466215,
+          0.473894,
+          0.479881
+        ],
+        "intervention_risk": [
+          0.443249,
+          0.456225,
+          0.466134,
+          0.473831,
+          0.479832
+        ],
+        "risk_delta": [
+          -0.000118,
+          -0.000107,
+          -8e-05,
+          -6.3e-05,
+          -4.9e-05
+        ],
+        "latent_shift": [
+          0.008303,
+          0.006191,
+          0.004648,
+          0.003604,
+          0.002806
+        ],
+        "mean_risk_delta": -8.3e-05,
+        "max_abs_risk_delta": 0.000118,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 7e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 3.5e-05,
+        "max_risk_drift": 2e-06,
+        "stability_score": 0.999993,
+        "per_horizon_risk_drift": [
+          1e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    },
+    {
+      "t_index": 180,
+      "explanation": {
+        "target": "state",
+        "target_value": 4.612358,
+        "method": "gradient-x-input",
+        "uses_attention": false,
+        "attention_note": "",
+        "top_features": [
+          {
+            "name": "node.total_bytes_received",
+            "scope": "node",
+            "attribution": 0.002049,
+            "abs_attribution": 0.002049
+          },
+          {
+            "name": "node.total_bytes_sent",
+            "scope": "node",
+            "attribution": -0.001999,
+            "abs_attribution": 0.001999
+          },
+          {
+            "name": "node.flow_count",
+            "scope": "node",
+            "attribution": -0.000186,
+            "abs_attribution": 0.000186
+          },
+          {
+            "name": "node.out_degree",
+            "scope": "node",
+            "attribution": -6e-05,
+            "abs_attribution": 6e-05
+          },
+          {
+            "name": "node.in_degree",
+            "scope": "node",
+            "attribution": 1.3e-05,
+            "abs_attribution": 1.3e-05
+          },
+          {
+            "name": "edge.flow_count",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.total_bytes",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          },
+          {
+            "name": "edge.contains_attack",
+            "scope": "edge",
+            "attribution": 0.0,
+            "abs_attribution": 0.0
+          }
+        ],
+        "important_nodes": [
+          {
+            "node_index": 16,
+            "timestep": 0,
+            "importance": 0.000559,
+            "node_id": null
+          },
+          {
+            "node_index": 11,
+            "timestep": 3,
+            "importance": 0.000464,
+            "node_id": null
+          },
+          {
+            "node_index": 9,
+            "timestep": 2,
+            "importance": 0.000463,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 3,
+            "importance": 0.000401,
+            "node_id": null
+          },
+          {
+            "node_index": 1,
+            "timestep": 0,
+            "importance": 0.000294,
+            "node_id": null
+          },
+          {
+            "node_index": 133,
+            "timestep": 3,
+            "importance": 0.000174,
+            "node_id": null
+          },
+          {
+            "node_index": 6,
+            "timestep": 1,
+            "importance": 0.000155,
+            "node_id": null
+          },
+          {
+            "node_index": 260,
+            "timestep": 3,
+            "importance": 0.000145,
+            "node_id": null
+          },
+          {
+            "node_index": 115,
+            "timestep": 3,
+            "importance": 0.0001,
+            "node_id": null
+          },
+          {
+            "node_index": 7,
+            "timestep": 3,
+            "importance": 8.9e-05,
+            "node_id": null
+          }
+        ],
+        "important_edges": [],
+        "temporal_evidence": [
+          {
+            "timestep": 0,
+            "relative_horizon": -3,
+            "importance": 0.00104
+          },
+          {
+            "timestep": 1,
+            "relative_horizon": -2,
+            "importance": 0.000537
+          },
+          {
+            "timestep": 2,
+            "relative_horizon": -1,
+            "importance": 0.001365
+          },
+          {
+            "timestep": 3,
+            "relative_horizon": 0,
+            "importance": 0.002324
+          }
+        ],
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "seq_len": 4,
+          "deterministic": true
+        }
+      },
+      "propagation": {
+        "suspicion_source": "label",
+        "total_affected": 10,
+        "velocity": 2.5,
+        "peak_velocity": 3,
+        "direction": "fan-in",
+        "direction_ratio": 0.3,
+        "mean_branching": 1.0,
+        "persistence": 0.3,
+        "growth": 2.4,
+        "is_spreading": true,
+        "per_window": [
+          {
+            "timestep": 0,
+            "window_index": null,
+            "affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "newly_affected": [
+              "n29",
+              "n5",
+              "n6"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 3,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 1,
+            "window_index": null,
+            "affected": [
+              "n0",
+              "n1",
+              "n43"
+            ],
+            "newly_affected": [
+              "n0",
+              "n1",
+              "n43"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 6,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 2,
+            "window_index": null,
+            "affected": [
+              "n2",
+              "n3",
+              "n7"
+            ],
+            "newly_affected": [
+              "n2",
+              "n3",
+              "n7"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 3,
+            "cumulative_affected": 9,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          },
+          {
+            "timestep": 3,
+            "window_index": null,
+            "affected": [
+              "n2",
+              "n3",
+              "n4"
+            ],
+            "newly_affected": [
+              "n4"
+            ],
+            "n_affected": 3,
+            "n_newly_affected": 1,
+            "cumulative_affected": 10,
+            "suspicious_edges": 2,
+            "out_edges": 2,
+            "in_edges": 2,
+            "branching": 1.0
+          }
+        ]
+      },
+      "counterfactual": {
+        "intervention": "isolate_node",
+        "params": {
+          "node_index": 16
+        },
+        "K": 5,
+        "baseline_risk": [
+          0.443245,
+          0.456243,
+          0.466146,
+          0.47384,
+          0.479839
+        ],
+        "intervention_risk": [
+          0.443214,
+          0.456217,
+          0.466126,
+          0.473824,
+          0.479827
+        ],
+        "risk_delta": [
+          -3.1e-05,
+          -2.6e-05,
+          -1.9e-05,
+          -1.5e-05,
+          -1.2e-05
+        ],
+        "latent_shift": [
+          0.002418,
+          0.001537,
+          0.001131,
+          0.000881,
+          0.000686
+        ],
+        "mean_risk_delta": -2.1e-05,
+        "max_abs_risk_delta": 3.1e-05,
+        "label": "Modelled / simulated outcome.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "temporal_type": "lstm",
+          "latent_dim": 64,
+          "deterministic": true,
+          "note": "Difference is the modelled effect under the learned dynamics; not a causal guarantee."
+        }
+      },
+      "stability": {
+        "n_trials": 12,
+        "epsilon": 0.05,
+        "K": 5,
+        "mean_latent_drift": 4e-06,
+        "mean_risk_drift": 0.0,
+        "max_latent_drift": 1.3e-05,
+        "max_risk_drift": 1e-06,
+        "stability_score": 0.999996,
+        "per_horizon_risk_drift": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "method": "controlled-input-perturbation",
+        "note": "Deterministic input-sensitivity (dropout OFF). This is NOT MC-Dropout model uncertainty; it measures how the forecast responds to small, valid perturbations of the observed inputs.",
+        "metadata": {
+          "gnn_type": "graphsage",
+          "latent_dim": 64,
+          "seed": 42,
+          "deterministic_rollout": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n_anchors": 20,
+    "mean_stability_score": 0.9999949000000001,
+    "min_stability_score": 0.999981,
+    "max_stability_score": 0.999998,
+    "n_spreading": 20,
+    "n_counterfactuals": 20,
+    "mean_counterfactual_risk_delta": -7.505e-05,
+    "top_feature_counts": {
+      "node.total_bytes_received": 20
+    }
+  }
+}

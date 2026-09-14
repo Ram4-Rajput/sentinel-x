@@ -1,0 +1,114 @@
+{
+  "model": "sentinel_x_world_model",
+  "phase": "4-world-model",
+  "objective": "future-state modelling P(S_{t+1}|S_t) with auxiliary risk",
+  "best_combo": "graphsage_lstm",
+  "num_parameters": 185729,
+  "dataset": "ctu-13",
+  "split_info": {
+    "dataset": "ctu-13",
+    "num_windows": 195,
+    "seq_len": 4,
+    "horizon": 1,
+    "usable": true,
+    "num_samples": 191,
+    "counts": {
+      "train": 133,
+      "val": 28,
+      "test": 30
+    },
+    "positives": {
+      "train": 7,
+      "val": 5,
+      "test": 19
+    },
+    "feature_names": [
+      "num_nodes",
+      "num_edges",
+      "num_flows",
+      "attack_ratio",
+      "mean_node_out_degree",
+      "mean_node_in_degree",
+      "mean_node_bytes_sent",
+      "mean_node_bytes_received",
+      "total_edge_bytes",
+      "edge_attack_fraction",
+      "density"
+    ],
+    "graph_capable": true
+  },
+  "test_metrics": {
+    "n": 30,
+    "positives": 19,
+    "negatives": 11,
+    "threshold": 0.42692267894744873,
+    "precision": 0.6551724137931034,
+    "recall": 1.0,
+    "f1": 0.7916666666666666,
+    "pr_auc": 0.8956954408966791,
+    "roc_auc": 0.8468899521531099,
+    "false_positive_rate": 0.9090909090909091,
+    "tp": 19,
+    "fp": 10,
+    "tn": 1,
+    "fn": 0
+  },
+  "val_metrics": {
+    "n": 28,
+    "positives": 5,
+    "negatives": 23,
+    "threshold": 0.42692267894744873,
+    "precision": 0.17857142857142858,
+    "recall": 1.0,
+    "f1": 0.30303030303030304,
+    "pr_auc": 0.13660317460317462,
+    "roc_auc": 0.2347826086956522,
+    "false_positive_rate": 1.0,
+    "tp": 5,
+    "fp": 23,
+    "tn": 0,
+    "fn": 0
+  },
+  "chosen_threshold": 0.42692267894744873,
+  "created_utc": "2026-09-04T17:54:58.208331+00:00",
+  "python": "3.14.3",
+  "torch": "2.14.0+cpu",
+  "torch_geometric": "2.8.0.post1",
+  "config": {
+    "model": {
+      "gnn_type": "graphsage",
+      "temporal_type": "lstm",
+      "hidden_dim": 128,
+      "graph_layers": 2,
+      "temporal_layers": 1,
+      "dropout": 0.2,
+      "latent_dim": 64,
+      "gat_heads": 4,
+      "pooling": "mean",
+      "node_feature_dim": 5,
+      "edge_feature_dim": 3,
+      "use_edge_features": true
+    },
+    "training": {
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 50,
+      "seed": 42,
+      "weight_decay": 0.0,
+      "grad_clip_norm": 1.0,
+      "early_stopping_patience": 8,
+      "early_stopping_min_delta": 0.0001,
+      "lambda_state": 1.0,
+      "lambda_risk": 1.0,
+      "selection_metric": "state"
+    },
+    "data": {
+      "dataset": "ctu-13",
+      "seq_len": 4,
+      "horizon": 1,
+      "train_frac": 0.7,
+      "val_frac": 0.15,
+      "min_windows": 12
+    }
+  }
+}

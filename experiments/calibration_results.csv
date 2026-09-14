@@ -1,0 +1,3 @@
+stage,lower,upper,count,mean_confidence,observed_frequency,gap,ece,mce,brier,temperature
+before,0.4,0.5,30,0.4276,0.6333,0.2057,0.2057,0.2057,0.2743,n/a
+after,0.1,0.2,30,0.1795,0.6333,0.4538,0.4538,0.4538,0.4374,0.1918

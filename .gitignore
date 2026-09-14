@@ -1,0 +1,49 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+
+# Phase-2 generated caches (large, reproducible via scripts/build_dataset.py).
+# Keep the folder + metadata, ignore the bulky window/graph artifacts.
+data/processed/*/windows/
+data/processed/*/graphs/
+data/unified/*
+!data/unified/.gitkeep
+!data/raw/.gitkeep
+
+# Phase-3 MLflow store + artifacts (regeneratable via scripts/run_baselines.py).
+# The result files (baseline_results.csv / baseline_metrics.json / baseline_report.md)
+# ARE kept in git; the DB and run artifacts are not.
+experiments/mlflow.db
+experiments/mlruns/
+experiments/mlartifacts/
+experiments/art/
+
+# Phase-4+ trained checkpoints + backups (regeneratable via scripts/train.py).
+# Keep small metadata/config in git if desired; ignore the bulky weights + backups.
+models/**/*.pt
+models/**/*.bak_*
+*.bak_tier*
+
+# Phase-9 reproducibility run manifests / config snapshots (per-run, regeneratable).
+experiments/runs/
+experiments/phase9/
+
+# Kaggle bundles (regeneratable via scripts/pack_kaggle.py).
+dist/kaggle/
+
+# Build / training logs.
+*.log
+
+# Kiro workspace internals (skills dir is huge; not source).
+.kiro/
+
+# Editor / OS noise.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

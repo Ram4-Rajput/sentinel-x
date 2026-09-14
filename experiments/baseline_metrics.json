@@ -1,0 +1,274 @@
+[
+  {
+    "dataset": "ctu-13",
+    "split_info": {
+      "dataset": "ctu-13",
+      "num_windows": 195,
+      "seq_len": 4,
+      "horizon": 1,
+      "usable": true,
+      "num_samples": 191,
+      "counts": {
+        "train": 133,
+        "val": 28,
+        "test": 30
+      },
+      "positives": {
+        "train": 7,
+        "val": 5,
+        "test": 19
+      },
+      "feature_names": [
+        "num_nodes",
+        "num_edges",
+        "num_flows",
+        "attack_ratio",
+        "mean_node_out_degree",
+        "mean_node_in_degree",
+        "mean_node_bytes_sent",
+        "mean_node_bytes_received",
+        "total_edge_bytes",
+        "edge_attack_fraction",
+        "density"
+      ]
+    },
+    "config": {
+      "seq_len": 4,
+      "horizon": 1,
+      "train_frac": 0.7,
+      "val_frac": 0.15,
+      "seed": 42
+    },
+    "models": {
+      "logistic_regression": {
+        "params": {
+          "model": "logistic_regression",
+          "C": 1.0,
+          "max_iter": 1000,
+          "class_weight": "balanced",
+          "seed": 42,
+          "n_features": 11
+        },
+        "threshold": 0.6333081647402867,
+        "val": {
+          "n": 28,
+          "positives": 5,
+          "negatives": 23,
+          "threshold": 0.6333081647402867,
+          "precision": 0.5,
+          "recall": 0.8,
+          "f1": 0.6153846153846154,
+          "pr_auc": 0.8454545454545455,
+          "roc_auc": 0.8521739130434783,
+          "false_positive_rate": 0.17391304347826086,
+          "tp": 4,
+          "fp": 4,
+          "tn": 19,
+          "fn": 1
+        },
+        "test": {
+          "n": 30,
+          "positives": 19,
+          "negatives": 11,
+          "threshold": 0.6333081647402867,
+          "precision": 0.8636363636363636,
+          "recall": 1.0,
+          "f1": 0.9268292682926829,
+          "pr_auc": 0.9171938495936378,
+          "roc_auc": 0.9234449760765551,
+          "false_positive_rate": 0.2727272727272727,
+          "tp": 19,
+          "fp": 3,
+          "tn": 8,
+          "fn": 0
+        },
+        "confusion_matrix": [
+          [
+            8,
+            3
+          ],
+          [
+            0,
+            19
+          ]
+        ]
+      },
+      "sequence_gru": {
+        "params": {
+          "model": "sequence_gru",
+          "temporal_type": "gru",
+          "hidden_size": 32,
+          "num_layers": 1,
+          "epochs": 40,
+          "lr": 0.001,
+          "seed": 42,
+          "pos_weight": 18.0,
+          "seq_len": 4
+        },
+        "threshold": 0.5381290316581726,
+        "val": {
+          "n": 28,
+          "positives": 5,
+          "negatives": 23,
+          "threshold": 0.5381290316581726,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "pr_auc": 0.911111111111111,
+          "roc_auc": 0.9652173913043478,
+          "false_positive_rate": 0.21739130434782608,
+          "tp": 5,
+          "fp": 5,
+          "tn": 18,
+          "fn": 0
+        },
+        "test": {
+          "n": 30,
+          "positives": 19,
+          "negatives": 11,
+          "threshold": 0.5381290316581726,
+          "precision": 0.7916666666666666,
+          "recall": 1.0,
+          "f1": 0.8837209302325582,
+          "pr_auc": 0.9545593103418586,
+          "roc_auc": 0.9330143540669855,
+          "false_positive_rate": 0.45454545454545453,
+          "tp": 19,
+          "fp": 5,
+          "tn": 6,
+          "fn": 0
+        },
+        "confusion_matrix": [
+          [
+            6,
+            5
+          ],
+          [
+            0,
+            19
+          ]
+        ],
+        "train_seconds": 0.246,
+        "num_parameters": 4353
+      },
+      "temporal_gnn_sage": {
+        "params": {
+          "model": "temporal_gnn_sage",
+          "gnn_type": "sage",
+          "hidden_size": 32,
+          "epochs": 40,
+          "lr": 0.001,
+          "seed": 42,
+          "pos_weight": 18.0
+        },
+        "threshold": 0.9998961687088013,
+        "val": {
+          "n": 28,
+          "positives": 5,
+          "negatives": 23,
+          "threshold": 0.9998961687088013,
+          "precision": 0.5,
+          "recall": 0.8,
+          "f1": 0.6153846153846154,
+          "pr_auc": 0.4928571428571428,
+          "roc_auc": 0.8173913043478261,
+          "false_positive_rate": 0.17391304347826086,
+          "tp": 4,
+          "fp": 4,
+          "tn": 19,
+          "fn": 1
+        },
+        "test": {
+          "n": 30,
+          "positives": 19,
+          "negatives": 11,
+          "threshold": 0.9998961687088013,
+          "precision": 0.875,
+          "recall": 0.3684210526315789,
+          "f1": 0.5185185185185185,
+          "pr_auc": 0.7358187134502924,
+          "roc_auc": 0.6626794258373205,
+          "false_positive_rate": 0.09090909090909091,
+          "tp": 7,
+          "fp": 1,
+          "tn": 10,
+          "fn": 12
+        },
+        "confusion_matrix": [
+          [
+            10,
+            1
+          ],
+          [
+            12,
+            7
+          ]
+        ],
+        "train_seconds": 16.907,
+        "num_parameters": 385,
+        "graph_capable": true,
+        "note": ""
+      }
+    },
+    "rows": [
+      {
+        "dataset": "ctu-13",
+        "model": "logistic_regression",
+        "n_test": 30,
+        "test_positives": 19,
+        "precision": 0.8636,
+        "recall": 1.0,
+        "f1": 0.9268,
+        "pr_auc": 0.9172,
+        "roc_auc": 0.9234,
+        "false_positive_rate": 0.2727,
+        "threshold": 0.6333,
+        "tp": 19,
+        "fp": 3,
+        "tn": 8,
+        "fn": 0,
+        "train_seconds": 0.0,
+        "params": 11
+      },
+      {
+        "dataset": "ctu-13",
+        "model": "sequence_gru",
+        "n_test": 30,
+        "test_positives": 19,
+        "precision": 0.7917,
+        "recall": 1.0,
+        "f1": 0.8837,
+        "pr_auc": 0.9546,
+        "roc_auc": 0.933,
+        "false_positive_rate": 0.4545,
+        "threshold": 0.5381,
+        "tp": 19,
+        "fp": 5,
+        "tn": 6,
+        "fn": 0,
+        "train_seconds": 0.246,
+        "params": 4353
+      },
+      {
+        "dataset": "ctu-13",
+        "model": "temporal_gnn_sage",
+        "n_test": 30,
+        "test_positives": 19,
+        "precision": 0.875,
+        "recall": 0.3684,
+        "f1": 0.5185,
+        "pr_auc": 0.7358,
+        "roc_auc": 0.6627,
+        "false_positive_rate": 0.0909,
+        "threshold": 0.9999,
+        "tp": 7,
+        "fp": 1,
+        "tn": 10,
+        "fn": 12,
+        "train_seconds": 16.907,
+        "params": 385,
+        "graph_capable": true
+      }
+    ]
+  }
+]

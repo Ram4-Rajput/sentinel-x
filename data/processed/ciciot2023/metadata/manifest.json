@@ -1,0 +1,43 @@
+{
+  "dataset": "ciciot2023",
+  "node_feature_names": [
+    "out_degree",
+    "in_degree",
+    "total_bytes_sent",
+    "total_bytes_received",
+    "flow_count"
+  ],
+  "edge_feature_names": [
+    "flow_count",
+    "total_bytes",
+    "contains_attack"
+  ],
+  "splits": {
+    "all": {
+      "dataset": "ciciot2023",
+      "split": "all",
+      "dataset_version": "unknown",
+      "schema_version": "1.0",
+      "preprocessing_version": "1.0",
+      "pipeline_version": "2.0",
+      "window_size": 10.0,
+      "stride": 10.0,
+      "num_windows": 0,
+      "total_nodes": 0,
+      "total_edges": 0,
+      "total_flows": 5000,
+      "timestamp_min": null,
+      "timestamp_max": null,
+      "node_feature_names": [],
+      "edge_feature_names": [],
+      "class_distribution": {
+        "attack": 4883,
+        "benign": 117
+      }
+    }
+  },
+  "temporal_capable": false,
+  "limitations": [
+    "ciciot2023: 5000/5000 records lack timestamps -> no temporal windows / graph sequences (dataset has no time). Records streamed + preprocessed only."
+  ]
+}

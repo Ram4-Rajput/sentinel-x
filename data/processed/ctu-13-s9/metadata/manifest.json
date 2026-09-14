@@ -1,0 +1,138 @@
+{
+  "dataset": "ctu-13",
+  "node_feature_names": [
+    "out_degree",
+    "in_degree",
+    "total_bytes_sent",
+    "total_bytes_received",
+    "flow_count"
+  ],
+  "edge_feature_names": [
+    "flow_count",
+    "total_bytes",
+    "contains_attack"
+  ],
+  "splits": {
+    "train": {
+      "dataset": "ctu-13",
+      "split": "train",
+      "dataset_version": "unknown",
+      "schema_version": "1.0",
+      "preprocessing_version": "1.0",
+      "pipeline_version": "2.0",
+      "window_size": 10.0,
+      "stride": 10.0,
+      "num_windows": 1571,
+      "total_nodes": 789286,
+      "total_edges": 765383,
+      "total_flows": 1461255,
+      "timestamp_min": "2011-08-17T11:34:49.436881+00:00",
+      "timestamp_max": "2011-08-17T15:56:35.300452+00:00",
+      "node_feature_names": [],
+      "edge_feature_names": [],
+      "class_distribution": {
+        "unknown": 1361685,
+        "benign": 20868,
+        "attack": 78702
+      }
+    },
+    "val": {
+      "dataset": "ctu-13",
+      "split": "val",
+      "dataset_version": "unknown",
+      "schema_version": "1.0",
+      "preprocessing_version": "1.0",
+      "pipeline_version": "2.0",
+      "window_size": 10.0,
+      "stride": 10.0,
+      "num_windows": 213,
+      "total_nodes": 138086,
+      "total_edges": 135683,
+      "total_flows": 313126,
+      "timestamp_min": "2011-08-17T15:56:35.315056+00:00",
+      "timestamp_max": "2011-08-17T16:31:59.990820+00:00",
+      "node_feature_names": [],
+      "edge_feature_names": [],
+      "class_distribution": {
+        "attack": 53142,
+        "unknown": 255046,
+        "benign": 4938
+      }
+    },
+    "test": {
+      "dataset": "ctu-13",
+      "split": "test",
+      "dataset_version": "unknown",
+      "schema_version": "1.0",
+      "preprocessing_version": "1.0",
+      "pipeline_version": "2.0",
+      "window_size": 10.0,
+      "stride": 10.0,
+      "num_windows": 242,
+      "total_nodes": 128477,
+      "total_edges": 125168,
+      "total_flows": 313127,
+      "timestamp_min": "2011-08-17T16:31:59.991592+00:00",
+      "timestamp_max": "2011-08-17T17:12:13.867435+00:00",
+      "node_feature_names": [],
+      "edge_feature_names": [],
+      "class_distribution": {
+        "unknown": 255823,
+        "attack": 53143,
+        "benign": 4161
+      }
+    }
+  },
+  "temporal_capable": true,
+  "leakage_ok": true,
+  "window_config": {
+    "window_size": 10.0,
+    "stride": 10.0,
+    "train_frac": 0.7,
+    "val_frac": 0.15
+  },
+  "preprocessor_feature_names": [
+    "flow_duration",
+    "flow_duration_was_missing",
+    "total_fwd_packets",
+    "total_fwd_packets_was_missing",
+    "total_bwd_packets",
+    "total_bwd_packets_was_missing",
+    "total_fwd_bytes",
+    "total_fwd_bytes_was_missing",
+    "total_bwd_bytes",
+    "total_bwd_bytes_was_missing",
+    "flow_bytes_per_s",
+    "flow_bytes_per_s_was_missing",
+    "flow_pkts_per_s",
+    "flow_pkts_per_s_was_missing",
+    "flow_iat_mean",
+    "flow_iat_mean_was_missing",
+    "fwd_iat_mean",
+    "fwd_iat_mean_was_missing",
+    "syn_flag_count",
+    "syn_flag_count_was_missing",
+    "ack_flag_count",
+    "ack_flag_count_was_missing",
+    "fin_flag_count",
+    "fin_flag_count_was_missing",
+    "rst_flag_count",
+    "rst_flag_count_was_missing",
+    "init_win_bytes_fwd",
+    "init_win_bytes_fwd_was_missing",
+    "ttl_src",
+    "ttl_src_was_missing",
+    "ttl_dst",
+    "ttl_dst_was_missing",
+    "header_length",
+    "header_length_was_missing",
+    "src_port",
+    "src_port_was_missing",
+    "dst_port",
+    "dst_port_was_missing",
+    "protocol_idx"
+  ],
+  "raw_files": [
+    "D:\\sentinel\\data\\CSE-CIC-IDS2018\\CSE-CIC-IDS2018\\CTU-13-Dataset\\CTU-13-Dataset\\9\\capture20110817.binetflow"
+  ]
+}

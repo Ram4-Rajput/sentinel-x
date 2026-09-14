@@ -1,0 +1,37 @@
+# Sentinel-X world model configuration (Phase 4).
+# Nothing is hardcoded in the model/training code — everything lives here and is
+# CLI-overridable. See src/sentinelx/worldmodel/config.py.
+
+model:
+  gnn_type: gat            # gat | graphsage
+  temporal_type: gru       # gru | lstm
+  hidden_dim: 128
+  graph_layers: 2
+  temporal_layers: 1
+  dropout: 0.2
+  latent_dim: 64           # dimension of the learned network state z_t
+  gat_heads: 4             # hidden_dim must be divisible by gat_heads (GAT only)
+  pooling: mean            # mean | max | sum
+  node_feature_dim: 5      # from Phase-2 cache (out/in degree, bytes x2, flows)
+  edge_feature_dim: 3      # flow_count, total_bytes, contains_attack
+  use_edge_features: true  # GAT consumes edge features; GraphSAGE uses topology only
+
+training:
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 50
+  seed: 42
+  weight_decay: 0.0
+  grad_clip_norm: 1.0
+  early_stopping_patience: 8
+  early_stopping_min_delta: 0.0001
+  lambda_state: 1.0        # weight of future-state prediction (primary)
+  lambda_risk: 1.0         # weight of auxiliary malicious-risk prediction
+
+data:
+  dataset: ctu-13
+  seq_len: 4
+  horizon: 1
+  train_frac: 0.7
+  val_frac: 0.15
+  min_windows: 12

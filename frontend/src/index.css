@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #05070d;
+  color: #c7d2e6;
+  font-family: "Inter", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Yantra-inspired ambient grid backdrop for panels. */
+.bg-yantra {
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(56, 225, 255, 0.05) 0%, transparent 60%),
+    linear-gradient(rgba(22, 32, 58, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 32, 58, 0.5) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.panel {
+  background: rgba(10, 15, 28, 0.72);
+  border: 1px solid rgba(29, 43, 77, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+}
+
+.panel-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #65748f;
+}
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: #1d2b4d;
+  border-radius: 3px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}

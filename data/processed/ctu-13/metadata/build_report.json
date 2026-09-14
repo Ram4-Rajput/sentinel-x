@@ -1,0 +1,30 @@
+{
+  "dataset": "ctu-13",
+  "files_processed": [
+    "D:\\sentinel\\data\\CSE-CIC-IDS2018\\CSE-CIC-IDS2018\\CTU-13-Dataset\\CTU-13-Dataset\\11\\capture20110818-2.binetflow"
+  ],
+  "records": 107251,
+  "rows_read": 107251,
+  "malformed_rows": 0,
+  "skipped_records": 0,
+  "windows": 195,
+  "graphs": 195,
+  "nodes": 62106,
+  "edges": 59369,
+  "class_distribution": {
+    "unknown": 96369,
+    "benign": 2718,
+    "attack": 8164
+  },
+  "temporal_min": "2011-08-18T15:39:35.087798+00:00",
+  "temporal_max": "2011-08-18T15:55:46.379941+00:00",
+  "processing_seconds": 33.66,
+  "peak_memory_mb": 308.3,
+  "cache_location": "D:\\sentinel\\sentinel\\data\\processed\\ctu-13",
+  "cache_size_bytes": 7765705,
+  "temporal_capable": true,
+  "leakage_ok": true,
+  "limitations": [
+    "dataset-property[duplicate_rows]: 2952 test rows share an identical feature key with train (18.35%). (not a split defect; inherent to this capture)"
+  ]
+}

@@ -1,0 +1,4 @@
+dataset,model,n_test,test_positives,precision,recall,f1,pr_auc,roc_auc,false_positive_rate,threshold,tp,fp,tn,fn,train_seconds,params,graph_capable
+ctu-13,logistic_regression,30,19,0.8636,1.0,0.9268,0.9172,0.9234,0.2727,0.6333,19,3,8,0,0.0,11,
+ctu-13,sequence_gru,30,19,0.7917,1.0,0.8837,0.9546,0.933,0.4545,0.5381,19,5,6,0,0.246,4353,
+ctu-13,temporal_gnn_sage,30,19,0.875,0.3684,0.5185,0.7358,0.6627,0.0909,0.9999,7,1,10,12,16.907,385,True

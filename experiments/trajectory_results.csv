@@ -1,0 +1,55 @@
+trajectory_t_index,order,stage,status,confidence,horizon,window_index,timestamp,source,evidence
+161,0,Benign / No Attack Behaviour,observed,0.0,-3,,,observed-state,"no malicious edges (attack_ratio=0.000, edge_attack_fraction=0.000)"
+161,1,Benign / No Attack Behaviour,observed,0.0,-2,,,observed-state,"no malicious edges (attack_ratio=0.000, edge_attack_fraction=0.000)"
+161,2,Command & Control,observed,0.7,-1,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=844, edge_bytes=158284584, mean_out_degree=2.11)"
+161,3,Command & Control,observed,0.7,0,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+161,4,Reconnaissance,forecast,0.44349,1,162,,forecast-rollout,model forecast risk at this horizon = 0.443 | present state shows host fan-out (possible recon)
+161,5,Reconnaissance,forecast,0.456443,2,163,,forecast-rollout,model forecast risk at this horizon = 0.456 | present state shows host fan-out (possible recon)
+161,6,Reconnaissance,forecast,0.4663,3,164,,forecast-rollout,model forecast risk at this horizon = 0.466 | present state shows host fan-out (possible recon)
+161,7,Reconnaissance,forecast,0.47396,4,165,,forecast-rollout,model forecast risk at this horizon = 0.474 | present state shows host fan-out (possible recon)
+161,8,Reconnaissance,forecast,0.479933,5,166,,forecast-rollout,model forecast risk at this horizon = 0.480 | present state shows host fan-out (possible recon)
+162,0,Benign / No Attack Behaviour,observed,0.0,-3,,,observed-state,"no malicious edges (attack_ratio=0.000, edge_attack_fraction=0.000)"
+162,1,Command & Control,observed,0.7,-2,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=844, edge_bytes=158284584, mean_out_degree=2.11)"
+162,2,Command & Control,observed,0.7,-1,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+162,3,Command & Control,observed,0.7,0,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.004) | sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+162,4,Reconnaissance,forecast,0.443401,1,163,,forecast-rollout,model forecast risk at this horizon = 0.443 | present state shows host fan-out (possible recon)
+162,5,Reconnaissance,forecast,0.456365,2,164,,forecast-rollout,model forecast risk at this horizon = 0.456 | present state shows host fan-out (possible recon)
+162,6,Reconnaissance,forecast,0.46624,3,165,,forecast-rollout,model forecast risk at this horizon = 0.466 | present state shows host fan-out (possible recon)
+162,7,Reconnaissance,forecast,0.473914,4,166,,forecast-rollout,model forecast risk at this horizon = 0.474 | present state shows host fan-out (possible recon)
+162,8,Reconnaissance,forecast,0.479897,5,167,,forecast-rollout,model forecast risk at this horizon = 0.480 | present state shows host fan-out (possible recon)
+163,0,Command & Control,observed,0.7,-3,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=844, edge_bytes=158284584, mean_out_degree=2.11)"
+163,1,Command & Control,observed,0.7,-2,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+163,2,Command & Control,observed,0.7,-1,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.004) | sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+163,3,Command & Control,observed,0.7,0,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.008) | sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+163,4,Reconnaissance,forecast,0.443244,1,164,,forecast-rollout,model forecast risk at this horizon = 0.443 | present state shows host fan-out (possible recon)
+163,5,Reconnaissance,forecast,0.456239,2,165,,forecast-rollout,model forecast risk at this horizon = 0.456 | present state shows host fan-out (possible recon)
+163,6,Reconnaissance,forecast,0.466143,3,166,,forecast-rollout,model forecast risk at this horizon = 0.466 | present state shows host fan-out (possible recon)
+163,7,Reconnaissance,forecast,0.473837,4,167,,forecast-rollout,model forecast risk at this horizon = 0.474 | present state shows host fan-out (possible recon)
+163,8,Reconnaissance,forecast,0.479837,5,168,,forecast-rollout,model forecast risk at this horizon = 0.480 | present state shows host fan-out (possible recon)
+164,0,Command & Control,observed,0.7,-3,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.003) | sustained high-volume fan-out (flows=649, edge_bytes=3062037, mean_out_degree=1.89)"
+164,1,Command & Control,observed,0.7,-2,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.004) | sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+164,2,Command & Control,observed,0.7,-1,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.008) | sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+164,3,Command & Control,observed,0.7,0,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.010) | sustained high-volume fan-out (flows=695, edge_bytes=5610489, mean_out_degree=3.16)"
+164,4,Reconnaissance,forecast,0.443064,1,165,,forecast-rollout,model forecast risk at this horizon = 0.443 | present state shows host fan-out (possible recon)
+164,5,Reconnaissance,forecast,0.456088,2,166,,forecast-rollout,model forecast risk at this horizon = 0.456 | present state shows host fan-out (possible recon)
+164,6,Reconnaissance,forecast,0.466026,3,167,,forecast-rollout,model forecast risk at this horizon = 0.466 | present state shows host fan-out (possible recon)
+164,7,Reconnaissance,forecast,0.473745,4,168,,forecast-rollout,model forecast risk at this horizon = 0.474 | present state shows host fan-out (possible recon)
+164,8,Reconnaissance,forecast,0.479765,5,169,,forecast-rollout,model forecast risk at this horizon = 0.480 | present state shows host fan-out (possible recon)
+165,0,Command & Control,observed,0.7,-3,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.004) | sustained high-volume fan-out (flows=566, edge_bytes=2407459, mean_out_degree=2.22)"
+165,1,Command & Control,observed,0.7,-2,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.008) | sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+165,2,Command & Control,observed,0.7,-1,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.010) | sustained high-volume fan-out (flows=695, edge_bytes=5610489, mean_out_degree=3.16)"
+165,3,Command & Control,observed,0.7,0,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.009) | sustained high-volume fan-out (flows=519, edge_bytes=2894495, mean_out_degree=2.30)"
+165,4,Reconnaissance,forecast,0.443029,1,166,,forecast-rollout,model forecast risk at this horizon = 0.443 | present state shows host fan-out (possible recon)
+165,5,Reconnaissance,forecast,0.456068,2,167,,forecast-rollout,model forecast risk at this horizon = 0.456 | present state shows host fan-out (possible recon)
+165,6,Reconnaissance,forecast,0.466011,3,168,,forecast-rollout,model forecast risk at this horizon = 0.466 | present state shows host fan-out (possible recon)
+165,7,Reconnaissance,forecast,0.473734,4,169,,forecast-rollout,model forecast risk at this horizon = 0.474 | present state shows host fan-out (possible recon)
+165,8,Reconnaissance,forecast,0.479757,5,170,,forecast-rollout,model forecast risk at this horizon = 0.480 | present state shows host fan-out (possible recon)
+166,0,Command & Control,observed,0.7,-3,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.008) | sustained high-volume fan-out (flows=450, edge_bytes=37999299, mean_out_degree=1.75)"
+166,1,Command & Control,observed,0.7,-2,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.010) | sustained high-volume fan-out (flows=695, edge_bytes=5610489, mean_out_degree=3.16)"
+166,2,Command & Control,observed,0.7,-1,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.009) | sustained high-volume fan-out (flows=519, edge_bytes=2894495, mean_out_degree=2.30)"
+166,3,Command & Control,observed,0.7,0,,,observed-state,"window carries a ground-truth attack label | some malicious flows (attack_ratio=0.010) | sustained high-volume fan-out (flows=427, edge_bytes=2480859, mean_out_degree=1.92)"
+166,4,Reconnaissance,forecast,0.442886,1,167,,forecast-rollout,model forecast risk at this horizon = 0.443 | present state shows host fan-out (possible recon)
+166,5,Reconnaissance,forecast,0.455958,2,168,,forecast-rollout,model forecast risk at this horizon = 0.456 | present state shows host fan-out (possible recon)
+166,6,Reconnaissance,forecast,0.465925,3,169,,forecast-rollout,model forecast risk at this horizon = 0.466 | present state shows host fan-out (possible recon)
+166,7,Reconnaissance,forecast,0.473666,4,170,,forecast-rollout,model forecast risk at this horizon = 0.474 | present state shows host fan-out (possible recon)
+166,8,Reconnaissance,forecast,0.479704,5,171,,forecast-rollout,model forecast risk at this horizon = 0.480 | present state shows host fan-out (possible recon)

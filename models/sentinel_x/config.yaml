@@ -1,0 +1,32 @@
+model:
+  gnn_type: graphsage
+  temporal_type: lstm
+  hidden_dim: 128
+  graph_layers: 2
+  temporal_layers: 1
+  dropout: 0.2
+  latent_dim: 64
+  gat_heads: 4
+  pooling: mean
+  node_feature_dim: 5
+  edge_feature_dim: 3
+  use_edge_features: true
+training:
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 50
+  seed: 42
+  weight_decay: 0.0
+  grad_clip_norm: 1.0
+  early_stopping_patience: 8
+  early_stopping_min_delta: 0.0001
+  lambda_state: 1.0
+  lambda_risk: 1.0
+  selection_metric: state
+data:
+  dataset: ctu-13
+  seq_len: 4
+  horizon: 1
+  train_frac: 0.7
+  val_frac: 0.15
+  min_windows: 12

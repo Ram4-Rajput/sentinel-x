@@ -1,0 +1,80 @@
+{
+  "dataset": "ctu-13-holdout",
+  "assembled_from": "ctu-13 scenarios 1..13 (full scale)",
+  "node_feature_names": [
+    "out_degree",
+    "in_degree",
+    "total_bytes_sent",
+    "total_bytes_received",
+    "flow_count"
+  ],
+  "edge_feature_names": [
+    "flow_count",
+    "total_bytes",
+    "contains_attack"
+  ],
+  "scenario_family": {
+    "1": "Neris",
+    "2": "Neris",
+    "3": "Rbot",
+    "4": "Rbot",
+    "5": "Virut",
+    "6": "Menti",
+    "7": "Sogou",
+    "8": "Murlo",
+    "9": "Neris",
+    "10": "Rbot",
+    "11": "Rbot",
+    "12": "NSIS.ay",
+    "13": "Virut"
+  },
+  "splits": {
+    "train": {
+      "num_windows": 40012,
+      "positives": 11398,
+      "families": [
+        "Murlo",
+        "Neris",
+        "Rbot",
+        "Virut"
+      ],
+      "scenarios": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10
+      ]
+    },
+    "val": {
+      "num_windows": 7060,
+      "positives": 6120,
+      "families": [
+        "NSIS.ay",
+        "Rbot",
+        "Virut"
+      ],
+      "scenarios": [
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "test": {
+      "num_windows": 906,
+      "positives": 571,
+      "families": [
+        "Menti",
+        "Sogou"
+      ],
+      "scenarios": [
+        6,
+        7
+      ]
+    }
+  }
+}

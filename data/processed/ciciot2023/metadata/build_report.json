@@ -1,0 +1,29 @@
+{
+  "dataset": "ciciot2023",
+  "files_processed": [
+    "D:\\DATA\\CSE-CIC-IDS2018\\test.csv"
+  ],
+  "records": 5000,
+  "rows_read": 100000,
+  "malformed_rows": 0,
+  "skipped_records": 0,
+  "windows": 0,
+  "graphs": 0,
+  "nodes": 0,
+  "edges": 0,
+  "class_distribution": {
+    "attack": 4883,
+    "benign": 117
+  },
+  "temporal_min": null,
+  "temporal_max": null,
+  "processing_seconds": 4.842,
+  "peak_memory_mb": 362.3,
+  "cache_location": "D:\\sentinel\\sentinel\\data\\processed\\ciciot2023",
+  "cache_size_bytes": 1086,
+  "temporal_capable": false,
+  "leakage_ok": true,
+  "limitations": [
+    "ciciot2023: 5000/5000 records lack timestamps -> no temporal windows / graph sequences (dataset has no time). Records streamed + preprocessed only."
+  ]
+}

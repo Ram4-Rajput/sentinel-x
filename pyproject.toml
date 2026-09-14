@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinelx"
+version = "0.1.0"
+description = "Sentinel-X: AI-powered Network World Model — unified data layer"
+requires-python = ">=3.10"
+# The unified data layer intentionally uses only the Python standard library
+# (no pandas/numpy) so it is dependency-light and easy to test. Modeling phases
+# will add torch / torch-geometric etc. later.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7", "httpx>=0.27"]   # httpx powers fastapi's TestClient
+# Optional, non-blocking extras. The core flow pipeline needs none of these.
+pcap = ["scapy>=2.5"]            # optional PCAP feature extraction
+graph = ["torch>=2.0", "torch-geometric>=2.4"]  # optional PyG .pt cache export
+# Phase-10 model serving (FastAPI). uvicorn is only needed to actually run the
+# server (scripts/serve.py); the TestClient-based API tests need only fastapi.
+serve = ["fastapi>=0.110", "uvicorn>=0.29"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

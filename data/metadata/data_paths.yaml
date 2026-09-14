@@ -1,0 +1,14 @@
+# Sentinel-X raw dataset locations (Phase 2).
+# Resolved by sentinelx.pipeline.config.resolve_dataset().
+# Raw data lives OUTSIDE the workspace and is treated as immutable (read-only).
+# Override any entry with --raw-path or env SENTINELX_<DATASET>_RAW.
+#
+# NOTE: these point at the verified locations from the Phase-1 audit.
+#   - CICIoT2023 is (mislabeled) under the CSE-CIC-IDS2018 folder as train/test/validation.csv;
+#     the 10 CICFlowMeter day files in that folder are IGNORED for the ciciot2023 dataset.
+#   - CIC-IDS2018 genuine files are in the processed/ subfolder.
+
+cic-ids2018: D:\DATA\CSE-CIC-IDS2018\processed
+ciciot2023: D:\DATA\CSE-CIC-IDS2018
+unsw-nb15: D:\DATA\UNSW-NB15
+ctu-13: D:\sentinel\data\CSE-CIC-IDS2018\CSE-CIC-IDS2018\CTU-13-Dataset\CTU-13-Dataset

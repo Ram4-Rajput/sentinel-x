@@ -1,0 +1,5 @@
+model,dataset,precision,recall,f1,pr_auc,false_positive_rate,forecast_error,lead_time,ece,ood_auroc,stability
+logistic_regression,ctu-13,0.8636,1.0,0.9268,0.9172,0.2727,,,,,
+sequence_gru,ctu-13,0.7917,1.0,0.8837,0.9546,0.4545,,,,,
+temporal_gnn_sage,ctu-13,0.875,0.3684,0.5185,0.7358,0.0909,,,,,
+sentinel_x_world_model,ctu-13,0.6552,1.0,0.7917,0.8957,0.9091,0.002565,,0.2057,0.3014,0.999995
