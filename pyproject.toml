@@ -13,7 +13,12 @@ requires-python = ">=3.10"
 dependencies = []
 
 [project.optional-dependencies]
-test = ["pytest>=7", "httpx>=0.27"]   # httpx powers fastapi's TestClient
+test = [
+	"pytest>=7",
+	"httpx>=0.27",  # httpx powers fastapi's TestClient
+	"numpy>=1.24",
+	"scikit-learn>=1.2",
+]
 # Optional, non-blocking extras. The core flow pipeline needs none of these.
 pcap = ["scapy>=2.5"]            # optional PCAP feature extraction
 graph = ["torch>=2.0", "torch-geometric>=2.4"]  # optional PyG .pt cache export

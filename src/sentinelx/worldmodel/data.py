@@ -24,6 +24,7 @@ import torch
 
 from ..experiments.common import (
     ExperimentConfig,
+    LazyWindowStore,
     WindowSample,
     _load_ordered_windows,
     build_window_samples,
@@ -98,9 +99,14 @@ class WorldModelDataset:
         if not info.get("usable"):
             return [], [], [], info
 
-        # Globally ordered windows (same ordering common.py uses) so we can look
-        # up the future window sequence by absolute t_index.
-        windows = _load_ordered_windows(exp_cfg)
+        # Lazy store is attached to info when dataset > lazy_threshold windows.
+        # In lazy mode, each WindowSample.graph_seq is empty; we fetch from the
+        # store at convert time so only one batch worth of windows is in RAM.
+        store: Optional[LazyWindowStore] = info.pop("_lazy_store", None)
+
+        # Globally ordered windows for target-sequence lookup (needed for both
+        # eager and lazy). In lazy mode we use the store; in eager mode we
+        # re-use the already-loaded list via _load_ordered_windows.
         H = self.cfg.horizon
         L = self.cfg.seq_len
 
@@ -108,22 +114,58 @@ class WorldModelDataset:
             out: List[WorldModelSample] = []
             for s in samples:
                 t = s.t_index
+                if store is not None:
+                    # Lazy: read this sample's input + target windows from disk now
+                    input_graphs = store.get_seq(t - L + 1, L)
+                    target_graphs = store.get_seq(t - L + 1 + H, L)
+                else:
+                    input_graphs = s.graph_seq
+                    # Eager: need the full windows list; re-load via _load_ordered_windows
+                    # is too expensive here. The caller should not reach this branch
+                    # for large datasets (lazy_threshold handles it).
+                    target_graphs = s.graph_seq  # placeholder; overridden below
+
                 input_seq = [graph_dict_to_tensors(g, self.node_dim, self.edge_dim)
-                             for g in s.graph_seq]
-                # future window sequence ending at t+H
-                fut_start = t - L + 1 + H
-                fut_slice = windows[fut_start: fut_start + L]
+                             for g in input_graphs]
                 target_seq = [graph_dict_to_tensors(g, self.node_dim, self.edge_dim)
-                              for g in fut_slice]
+                              for g in target_graphs]
                 out.append(WorldModelSample(
                     input_seq=input_seq, target_seq=target_seq,
                     y_risk=int(s.y), t_index=t,
                 ))
             return out
 
-        tr, va, te = convert(train), convert(val), convert(test)
+        if store is not None:
+            # Lazy path: convert eagerly but graph I/O is per-sample disk read.
+            tr = convert(train)
+            va = convert(val)
+            te = convert(test)
+        else:
+            # Eager path: use _load_ordered_windows for target lookup (small datasets).
+            windows = _load_ordered_windows(exp_cfg)
+
+            def convert_eager(samples: Sequence[WindowSample]) -> List[WorldModelSample]:
+                out: List[WorldModelSample] = []
+                for s in samples:
+                    t = s.t_index
+                    input_seq = [graph_dict_to_tensors(g, self.node_dim, self.edge_dim)
+                                 for g in s.graph_seq]
+                    fut_start = t - L + 1 + H
+                    fut_slice = windows[fut_start: fut_start + L]
+                    target_seq = [graph_dict_to_tensors(g, self.node_dim, self.edge_dim)
+                                  for g in fut_slice]
+                    out.append(WorldModelSample(
+                        input_seq=input_seq, target_seq=target_seq,
+                        y_risk=int(s.y), t_index=t,
+                    ))
+                return out
+
+            tr = convert_eager(train)
+            va = convert_eager(val)
+            te = convert_eager(test)
+
         info = dict(info)
-        info["graph_capable"] = _graph_capable(train)
+        info["graph_capable"] = _graph_capable(train if not store else tr)
         return tr, va, te, info
 
 

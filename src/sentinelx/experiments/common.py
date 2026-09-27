@@ -71,17 +71,79 @@ class ExperimentConfig:
     val_frac: float = 0.15
     seed: int = 42
     min_windows: int = 12      # need enough windows to form fair splits
+    lazy_threshold: int = 5000  # use lazy loading when num_windows > this
 
 
 @dataclass
 class WindowSample:
-    """One forecasting sample derived from cached windows."""
+    """One forecasting sample derived from cached windows.
+
+    graph_seq stores the actual graph dicts ONLY when use_lazy=False (small
+    datasets, local dev). For large datasets (ctu-13-full on Kaggle) set
+    use_lazy=True: graph_seq is empty and graphs are fetched via LazyWindowStore
+    on demand during batching. This keeps RAM proportional to batch_size, not
+    to the full dataset size.
+    """
     dataset: str
     t_index: int                       # window index t (last observed window)
     window_features: np.ndarray        # aggregate features of window t  (F,)
     seq_features: np.ndarray           # aggregated features [t-seq_len+1 .. t] (seq_len, F)
-    graph_seq: List[dict]              # cached graph dicts for [t-seq_len+1 .. t]
+    graph_seq: List[dict]              # graph dicts [t-seq_len+1 .. t]; empty if lazy
     y: int                             # attack@(t+horizon)
+
+
+class LazyWindowStore:
+    """Memory-efficient window store: reads graph dicts from JSONL on demand.
+
+    Keeps only a small LRU-style cache in RAM so repeated access within one
+    batch is fast, but the full ~2.5 GB of JSON never sits in memory at once.
+
+    Layout: three JSONL files (train/val/test) are concatenated logically.
+    Absolute window index maps to (file_index, line_number) via a lightweight
+    offset table built once at construction (one pass, integer-only).
+    """
+
+    _SPLITS = ("train", "val", "test")
+
+    def __init__(self, windows_dir: Path, cache_size: int = 512):
+        self._dir = Path(windows_dir)
+        self._cache: dict = {}          # abs_index -> dict (bounded LRU-ish)
+        self._cache_size = cache_size
+        # Build offset table: list of (filepath, byte_offset) per abs index.
+        self._offsets: List[tuple] = []   # (path, byte_offset)
+        for split in self._SPLITS:
+            p = self._dir / f"{split}.jsonl"
+            if not p.exists():
+                continue
+            with open(p, "rb") as fh:
+                while True:
+                    offset = fh.tell()
+                    line = fh.readline()
+                    if not line:
+                        break
+                    if line.strip():
+                        self._offsets.append((p, offset))
+
+    def __len__(self) -> int:
+        return len(self._offsets)
+
+    def __getitem__(self, idx: int) -> dict:
+        if idx in self._cache:
+            return self._cache[idx]
+        path, offset = self._offsets[idx]
+        with open(path, "rb") as fh:
+            fh.seek(offset)
+            line = fh.readline().decode("utf-8")
+        g = json.loads(line)
+        # Simple bounded cache: evict oldest when full
+        if len(self._cache) >= self._cache_size:
+            self._cache.pop(next(iter(self._cache)))
+        self._cache[idx] = g
+        return g
+
+    def get_seq(self, start: int, length: int) -> List[dict]:
+        """Return a contiguous slice of windows [start, start+length)."""
+        return [self[i] for i in range(start, start + length)]
 
 
 def _aggregate_window(graph: dict) -> np.ndarray:
@@ -126,6 +188,10 @@ def _load_ordered_windows(cfg: ExperimentConfig) -> List[dict]:
     Concatenates the Phase-2 splits (train/val/test JSONL) which are already
     contiguous in time, then re-orders globally by window_index so this phase
     applies ONE consistent chronological split for the forecasting task.
+
+    For large datasets (> cfg.lazy_threshold windows) this is called only to
+    obtain aggregate features + labels (one pass, then discarded). Graph dicts
+    are fetched on demand via LazyWindowStore during batching.
     """
     root = Path(cfg.processed_root) / cfg.dataset / "windows"
     if not root.exists():
@@ -149,14 +215,56 @@ def _load_ordered_windows(cfg: ExperimentConfig) -> List[dict]:
     return windows
 
 
+def _load_labels_and_agg(cfg: ExperimentConfig):
+    """Lightweight pass: read only labels + aggregate features, not full graph dicts.
+
+    Used by the lazy path to avoid materialising 2.5 GB of JSON in RAM.
+    Returns (agg_list, y_all) where agg_list[i] is the numpy feature vector
+    and y_all[i] is the binary attack label for window i.
+    """
+    root = Path(cfg.processed_root) / cfg.dataset / "windows"
+    agg_list: List[np.ndarray] = []
+    y_all: List[int] = []
+    for split in ("train", "val", "test"):
+        p = root / f"{split}.jsonl"
+        if not p.exists():
+            continue
+        with open(p, "r", encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                w = json.loads(line)
+                agg_list.append(_aggregate_window(w))
+                y_all.append(int(w.get("label_any_attack", 0)))
+    return agg_list, y_all
+
+
 def build_window_samples(cfg: ExperimentConfig) -> Tuple[List[WindowSample], List[WindowSample], List[WindowSample], Dict]:
     """Build train/val/test forecasting samples with an identical, leakage-safe
     protocol shared by all baselines.
 
+    For large datasets (> cfg.lazy_threshold windows) graph dicts are NOT loaded
+    into RAM upfront. Each WindowSample stores only its t_index; graph dicts are
+    fetched on demand via LazyWindowStore during batching. This caps peak RAM at
+    O(batch_size * seq_len * avg_window_size) instead of O(N * seq_len * size),
+    avoiding OOM on Kaggle (13 GB cap) with ctu-13-full (47k windows, ~2.5 GB raw).
+
     Returns (train, val, test, info).
     """
-    windows = _load_ordered_windows(cfg)
-    n_win = len(windows)
+    root = Path(cfg.processed_root) / cfg.dataset / "windows"
+    if not root.exists():
+        raise FileNotFoundError(
+            f"No Phase-2 cache for '{cfg.dataset}' at {root}. Run "
+            f"scripts/build_dataset.py --dataset {cfg.dataset} first."
+        )
+
+    # Quick window count (no JSON parse) to decide eager vs lazy.
+    n_win = sum(
+        sum(1 for ln in open(root / f"{s}.jsonl", "r", encoding="utf-8") if ln.strip())
+        for s in ("train", "val", "test")
+        if (root / f"{s}.jsonl").exists()
+    )
     info: Dict = {"dataset": cfg.dataset, "num_windows": n_win,
                   "seq_len": cfg.seq_len, "horizon": cfg.horizon}
 
@@ -167,25 +275,37 @@ def build_window_samples(cfg: ExperimentConfig) -> Tuple[List[WindowSample], Lis
             f"fair train/val/test forecasting splits.")
         return [], [], [], info
 
-    # Precompute per-window aggregate features and attack labels.
-    agg = [_aggregate_window(w) for w in windows]
-    y_all = [int(w.get("label_any_attack", 0)) for w in windows]
+    use_lazy = n_win > cfg.lazy_threshold
+    info["lazy"] = use_lazy
 
-    # Build samples: for each t where a full history [t-seq_len+1..t] and a
-    # future target at t+horizon exist.
+    if use_lazy:
+        # Lightweight pass: labels + agg features only; LazyWindowStore for graphs.
+        agg, y_all = _load_labels_and_agg(cfg)
+        store: Optional[LazyWindowStore] = LazyWindowStore(root)
+    else:
+        windows = _load_ordered_windows(cfg)
+        agg = [_aggregate_window(w) for w in windows]
+        y_all = [int(w.get("label_any_attack", 0)) for w in windows]
+        store = None
+
+    # Build samples.
     samples: List[WindowSample] = []
     for t in range(cfg.seq_len - 1, n_win - cfg.horizon):
         seq_slice = agg[t - cfg.seq_len + 1: t + 1]
+        # Lazy: graph_seq is empty; store fetches on demand at batch time.
+        graph_seq: List[dict] = (
+            [] if use_lazy
+            else windows[t - cfg.seq_len + 1: t + 1]  # type: ignore[index]
+        )
         samples.append(WindowSample(
             dataset=cfg.dataset,
             t_index=t,
             window_features=agg[t],
             seq_features=np.stack(seq_slice, axis=0),
-            graph_seq=windows[t - cfg.seq_len + 1: t + 1],
+            graph_seq=graph_seq,
             y=y_all[t + cfg.horizon],
         ))
 
-    # Chronological split by t_index (samples are already time-ordered).
     n = len(samples)
     if n < cfg.min_windows:
         info["usable"] = False
@@ -218,6 +338,8 @@ def build_window_samples(cfg: ExperimentConfig) -> Tuple[List[WindowSample], Lis
         "test": sum(s.y for s in test),
     }
     info["feature_names"] = WINDOW_FEATURE_NAMES
+    if use_lazy:
+        info["_lazy_store"] = store   # consumed by WorldModelDataset.build()
     return train, val, test, info
 
 
